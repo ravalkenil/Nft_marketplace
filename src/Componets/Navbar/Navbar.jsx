@@ -24,15 +24,18 @@ const Navbar = () => {
   const [profile, setprofile] = useState(false)
   const [opensidemenu, setopensidemenu] = useState(false)
 
-  const oepnMenu =(e)=>{
-    const btnText =e.target.innerText;
-    if(btnText == "Discover"){
+  // console.log("----------------------");
+
+  const openMenu = async(e)=>{
+    
+    const btntext =e.target.innerText;
+    if(btntext == "Discover"){
       setdiscover(true)
       sethelp(false)
       setnotification(false)
       setprofile(false)
     }
-    else if(btnText =="Help Center"){
+    else if(btntext == "Help Center"){
       setdiscover(false)
       sethelp(true)
       setnotification(false)
@@ -75,6 +78,7 @@ const Navbar = () => {
       setopensidemenu(false)
     }
   }
+  
   return (
     <div className={Style.navbar}>
       <div className={Style.navbar_container}>
@@ -85,17 +89,17 @@ const Navbar = () => {
           <div className={Style.navbar_container_left_box_input}>
             <div className={Style.navbar_container_left_box_input_box}>
               <input type="text" placeholder='Search Nft '/>
-              <BsSearch onClick={()=>{}}  className={Style.search_con}/>
+              <BsSearch onClick={()=>{}}  className={Style.search_con} className={Style.search_icon}/>
             </div>
           </div>
         </div>
-
         {/* end of left section */}
         <div className={Style.navbar_container_right}>
           <div className={Style.navbar_container_right_discover}>
 
             {/* discover menu */}
-            <p  onClick={(e)=> oepnMenu(e)}>Discover</p>
+        
+            <p onClick={(e)=>openMenu(e)}>Discover</p>
             {
               discover && (
                   <div className={Style.navbar_container_right_discover_box}>
@@ -108,7 +112,7 @@ const Navbar = () => {
             {/* help center */}
 
             <div className={Style.navbar_container_right_help}>
-              <p onClick={(e)=>oepnMenu(e)}>Help Center</p>
+              <p onClick={(e)=>openMenu(e)} >Help Center</p>
               {
               help && (
                   <div className={Style.navbar_container_right_help_box}>
