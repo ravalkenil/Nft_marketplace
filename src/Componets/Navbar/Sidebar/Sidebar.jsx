@@ -93,7 +93,7 @@ const Sidebar = ({setopensidemenu}) => {
       <div className={Style.sideBar_box}> 
           <Image src={images.logo} alt="logo" width={150} height={150} />
           <p>Discover the most outstnding article </p>
-          <div className={Style.sidebar_social}>
+          <div className={Style.sideBar_social}>
               <a href="#">
                 <TiSocialFacebook/>
               </a>
@@ -111,7 +111,7 @@ const Sidebar = ({setopensidemenu}) => {
               </a>
           </div>
       </div>
-      <div className={Style.sidebar_menu}>
+      <div className={Style.sidebar_menu} >
         <div>
           <div className={Style.sidebar_menu_box} onClick={()=>openDiscovermenu()}>
             <p>Discover</p>

@@ -28,14 +28,14 @@ const Navbar = () => {
 
   const openMenu = async(e)=>{
     
-    const btntext =e.target.innerText;
-    if(btntext == "Discover"){
+    const btnText =e.target.innerText;
+    if(btnText == "Discover"){
       setdiscover(true)
       sethelp(false)
       setnotification(false)
       setprofile(false)
     }
-    else if(btntext == "Help Center"){
+    else if(btnText == "Help Center"){
       setdiscover(false)
       sethelp(true)
       setnotification(false)
@@ -89,7 +89,7 @@ const Navbar = () => {
           <div className={Style.navbar_container_left_box_input}>
             <div className={Style.navbar_container_left_box_input_box}>
               <input type="text" placeholder='Search Nft '/>
-              <BsSearch onClick={()=>{}}  className={Style.search_con} className={Style.search_icon}/>
+              <BsSearch onClick={()=>{}}  className={Style.search_icon}/>
             </div>
           </div>
         </div>
@@ -132,7 +132,7 @@ const Navbar = () => {
 
             {/* create button sections */}
             <div className={Style.navbar_container_right_button}>
-              <button btnText="Create"/>
+              <Button BtnText="Create" />
             </div>
 
             {/* userprofile  */}
@@ -154,7 +154,7 @@ const Navbar = () => {
         </div>
         {/* side bar componets */}
       {
-        opensidemenu && (
+        !opensidemenu && (
           <div className={Style.Sidebar}>
             <Sidebar setopensidemenu={setopensidemenu}/>
           </div>
