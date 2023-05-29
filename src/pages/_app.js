@@ -1,5 +1,5 @@
 import '@/styles/globals.css'
-import { Navbar } from '@/Componets/Com_index';
+import { Navbar,Footer } from '@/Componets/Com_index';
 
 const App =({ Component, pageProps }) =>{
 
@@ -7,6 +7,7 @@ const App =({ Component, pageProps }) =>{
         <div>  
             <Navbar/>
             <Component {...pageProps} />
+            <Footer/>
         </div>
     )
 }

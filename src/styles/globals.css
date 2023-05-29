@@ -23,7 +23,7 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
-  /* background-color: var(--main-bg-color); */
+  background-color: var(--main-bg-color);
   color: var(--icons-color);
 }
 
@@ -34,7 +34,7 @@ a {
 
 * {
   box-sizing: border-box;
-  -webkit-tap-highlight-color: blue;
+  -webkit-tap-highlight-color: rgb(82, 102, 104);
 }
 
 ::selection{

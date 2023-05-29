@@ -132,7 +132,7 @@ const Navbar = () => {
 
             {/* create button sections */}
             <div className={Style.navbar_container_right_button}>
-              <Button BtnText="Create" />
+              <Button btnName="Create" handleclick={()=>{}} />
             </div>
 
             {/* userprofile  */}
@@ -154,7 +154,7 @@ const Navbar = () => {
         </div>
         {/* side bar componets */}
       {
-        !opensidemenu && (
+        opensidemenu && (
           <div className={Style.Sidebar}>
             <Sidebar setopensidemenu={setopensidemenu}/>
           </div>
