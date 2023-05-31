@@ -61,9 +61,27 @@ const Bignftslider = () => {
                 seconds:35,
             }
         }
-    
-
     ]
+
+    // ---inc
+
+    const inc=useCallback(()=>{
+        if(Idnumber+1 < sliderdata.length){
+            setIdnumber(Idnumber+1);
+        }
+    },[Idnumber,sliderdata.length])
+
+    // ------dec
+    const dec=useCallback(()=>{
+        if(Idnumber > 0){
+            setIdnumber(Idnumber-1);
+        }
+    },[Idnumber])
+
+    // useEffect(() => {
+    //     inc();
+    // }, [])
+    
   return (
     <div className={Style.bignftslider}>
         <div className={Style.bignftslider_box}>
@@ -72,7 +90,7 @@ const Bignftslider = () => {
                 <div className={Style.bignftslider_box_left_creator}>
                     <div className={Style.bignftslider_box_left_creator_profile}>
                         <Image src={sliderdata[Idnumber].image} alt='profile image' width={50} height={50} className={Style.bignftslider_box_left_creator_profile_img}/>
-                        <div className={Style.bignftslider_box_left_creator_profile_img}>
+                        <div className={Style.bignftslider_box_left_creator_profile_info}>
                             <p>Creator</p>
                             <h4>{sliderdata[Idnumber].name} <span><MdVerified/></span></h4>
                         </div>
@@ -118,12 +136,18 @@ const Bignftslider = () => {
                     </div>
                 </div>
                 <div className={Style.bignftslider_box_left_sliderbtn}>
-                    <TbArrowBigLeftLines  className={Style.bignftslider_box_left_sliderbtn_icon}  onClick={()=>inc()}/>
+                    <TbArrowBigLeftLines  className={Style.bignftslider_box_left_sliderbtn_icon}  onClick={()=>dec()}/>
                     <TbArrowBigRightLines  className={Style.bignftslider_box_left_sliderbtn_icon}  onClick={()=>inc()}/>
                 </div>
             </div>
-            <div className={Style}>
-
+            <div className={Style.bignftslider_box_right}>
+                <div className={Style.bignftslider_box_right_box}>
+                    <Image src={sliderdata[Idnumber].nftImage} alt='NFT image' className={Style.bignftslider_box_right_box_img}/>
+                    <div className={Style.bignftslider_box_right_box_like}>
+                        <AiFillHeart/>
+                        <span>{sliderdata[Idnumber].like}</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
