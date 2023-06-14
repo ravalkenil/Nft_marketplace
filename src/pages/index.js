@@ -5,26 +5,29 @@ import React from 'react'
 
 // Internal imports
 import Style from "../styles/Index.module.css";
-import {Herosection,Service,Bignftslider,Subscribe ,Title,Category,Filter,NFTcard ,Collection ,Followertab ,AudioLive} from "../Componets/Com_index";
+import {Herosection,Service,Bignftslider,Subscribe ,Title,Category,Filter,NFTcard ,Collection ,Followertab ,AudioLive,Slider ,Brand ,Video} from "../Componets/Com_index";
 
 
 const index = () => {
   return (
     <div className={Style.homepage}>
-      <Herosection/>
-      <Service/>
-      <Bignftslider/>
-      <Title heading="Audio collection" paragraph="Discover the most tranding NFTs"/>
+      <Herosection/> 
+      <Service/> 
+      <Bignftslider/> 
+      <Title heading="Audio collection" paragraph="Discover the most tranding NFTs"/> 
       <AudioLive/>
       <Title heading="new collection" paragraph="Discover the most tranding NFTs"/>
       <Followertab/>
+      <Slider/> 
       <Collection/>
       <Title heading="Fetured NFTs" paragraph="Discover the most tranding NFTs"/>
-      <Filter/>
-      <NFTcard/>
+      <Filter/> 
+      <NFTcard/> 
       <Title heading="Browse by category" paragraph="Explore the NFTs in the most featured categories"/>
       <Category/> 
-      <Subscribe/>
+      <Subscribe/> 
+      <Brand/>
+      <Video/>
     </div>
   )
 }
