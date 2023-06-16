@@ -9,9 +9,10 @@ import images from "../../img";
 
 
 const NFTcard = () => {
-    const featureArray=[1,2,3,4,5,6,9];
-    const [like, setlike] = useState(true);
+    const featureArray=[images.nft_image_1,images.nft_image_2,images.nft_image_3,images.nft_image_1,
+        images.nft_image_2,images.nft_image_3,images.nft_image_1,images.nft_image_2,images.nft_image_3];
 
+    const [like, setlike] = useState(true);
     const likenft=()=>{
         if(!like ){
             setlike(true)
@@ -26,8 +27,8 @@ const NFTcard = () => {
             return(
                 <div className={Style.NFTcard_box} key={i+1}>
                     <div className={Style.NFTcard_box_img}>
-                        <Image src={images.nft_image_1} alt='NFT images' width={600} height={600} className={Style.NFTcard_box_img_img}/>
-                    </div>
+                        <Image src={el} alt='NFT images' width={600} height={600} className={Style.NFTcard_box_img_img}/>
+                    </div> 
                     <div className={Style.NFTcard_box_update}>
                         <div className={Style.NFTcard_box_update_left}>
                             <div className={Style.NFTcard_box_update_left_like} onClick={()=>likenft()}>

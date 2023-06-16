@@ -19,6 +19,7 @@ const Herosection = () => {
             </div>
             <div className={Style.herosection_box_right}>
                 <Image src={images.hero} alt="hero section" width={600} height={600} />
+                
             </div>
         </div>
     </div>

@@ -17,19 +17,20 @@ const Followertabcard = ({i,el}) => {
       setFollwing(false)
     }
   }
+
   return (
     <div className={Style.followertabcard}>
       <div className={Style.followertabcard_rank}>
           <p>
-            #{i+1} <span>🏅</span>
+            #{i+1} <span>🏅</span> 
           </p>
       </div>
       <div className={Style.followertabcard_box}>
           <div className={Style.followertabcard_box_img}>
-              <Image  src={images.creatorbackground1} className={Style.followertabcard_box_img_img} alt='Profile background' width={470} height={300}/>
+              <Image  src={el.background} className={Style.followertabcard_box_img_img} alt='Profile background' width={470} height={300}/>
           </div>
           <div className={Style.followertabcard_box_profile}>
-              <Image className={Style.followertabcard_box_profile_img} alt='Picture' width={100} height={100} src={images.user1}/>
+              <Image className={Style.followertabcard_box_profile_img} alt='Picture' width={100} height={100} src={el.user}/>
           </div>
           <div className={Style.followertabcard_box_info}>
               <div className={Style.followertabcard_box_info_name} >

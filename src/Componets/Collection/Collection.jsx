@@ -4,15 +4,23 @@ import { BsFillAlarmFill,BsFillCalendarDateFill,BsCalendar3 } from 'react-icons/
 // Internal import
 import Style from "./Collection.module.css";
 import DayCom from './DayCom/DayCom';
+import images from "../../img";
 
 const Collection = () => {
     const [Popular, setPopular] = useState(true);
     const [Follwing, setFollwing] = useState(false);
     const [News, setNews] = useState(false);
 
-    const Cardarray=[1,2,3,4,5,6,7,8];
-    const follwingArray=[1,2,3,4];
-    const newsarry=[1,2,3,4,5,6];
+    const Cardarray=[{background:images.creatorbackground1 , user:images.user1},{background:images.creatorbackground2 , user:images.user2},{background:images.creatorbackground3 , user:images.user3},{background:images.creatorbackground4 , user:images.user4},
+        {background:images.creatorbackground5, user:images.user5},{background:images.creatorbackground6 , user:images.user6},
+        {background:images.creatorbackground7 , user:images.user7}];
+
+    const follwingArray=[{background:images.creatorbackground4 , user:images.user4},{background:images.creatorbackground8 , user:images.user8},
+        {background:images.creatorbackground5, user:images.user5},{background:images.creatorbackground6 , user:images.user6},
+        {background:images.creatorbackground7 , user:images.user7}];
+
+    const newsarry=[{background:images.creatorbackground5, user:images.user5},{background:images.creatorbackground6 , user:images.user6},
+        {background:images.creatorbackground7 , user:images.user7}];
 
     const openPopular=()=>{
         if(!Popular){
@@ -62,7 +70,7 @@ const Collection = () => {
                     {
                         Cardarray.map((el,i)=>{
                             return(
-                                <DayCom  key={i+1}/>
+                                <DayCom  key={i+1} i={i} el={el}/>
                             )
                         })
                     }
@@ -76,7 +84,7 @@ const Collection = () => {
                     {
                         follwingArray.map((el,i)=>{
                             return(
-                                <DayCom  key={i+1}/>
+                                <DayCom  key={i+1} i={i} el={el}/>
                             )
                         })
                     }
@@ -90,7 +98,7 @@ const Collection = () => {
                     {
                         newsarry.map((el,i)=>{
                             return(
-                                <DayCom  key={i+1}/>
+                                <DayCom  key={i+1} i={i} el={el}/>
                             )
                         })
                     }

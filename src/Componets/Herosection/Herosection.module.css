@@ -22,10 +22,17 @@
     margin-bottom: 2rem;
 }
 
-@media screen and  (max-width:20em) {
+@media screen and (max-width: 35em) {
     .herosection{
         width: 90%;
-        margin: 3rem  auto; 
+    }
+    
+}
+
+@media screen and (max-width: 55em) {
+    .herosection_box{
+        grid-template-columns: 1fr;
+        gap: 4rem;
     }
 
     .herosection_box_left{
@@ -33,14 +40,7 @@
     }
 
     .herosection_box_left h1{
-        font-size: 3rem;
         line-height: 1;
-    }
- }
-
- @media screen and  (max-width:55em) {
-    .herosection_box{
-        grid-template-columns: 1fr;
-        gap: 4rem;
+        font-size: 3rem;
     }
 }

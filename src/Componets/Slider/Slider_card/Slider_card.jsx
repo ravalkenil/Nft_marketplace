@@ -7,19 +7,19 @@ import Style from "./Slider.module.css";
 import images from "../../../img";
 import { Likeprofile } from '@/Componets/Com_index';
 
-const Slider_card = () => {
+const Slider_card = ({el,i}) => {
 
   return (
     <motion.div className={Style.slidercard}>
         <div className={Style.slidercard_box}>
             <motion.div className={Style.slidercard_box_img}>
-                <Image src={images.creatorbackground1} alt='slider profile' width={350} height={300} objectFit='cover' className={Style.slidercard_box_img_img}/> 
+                <Image src={el.background} alt='slider profile' width={350} height={300} objectFit='cover' className={Style.slidercard_box_img_img}/> 
             </motion.div>
             <div className={Style.slidercard_box_title}>
                 <p>NFT Video #1222</p> 
                 <div className={Style.slidercard_box_title_like}> 
                     <Likeprofile/>
-                    <p><small> 1 of 100</small></p>
+                    <p><small> 1 of 100 </small></p>
                 </div>
             </div>
             <div className={Style.slidercard_box_price}>

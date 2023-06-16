@@ -22,14 +22,13 @@ const Video = () => {
             <Image
               src={images.NFTVideo}
               alt="Video image"
-              width={1500}
-              height={800}
+              width={1300}
+              height={700}
               objectFit="cover"
               className={Style.Video_box_frame_left_img}
             />
           </div>
-
-          <div className={Style.Video_box_frame_right}></div>
+          <div className={Style.Video_box_frame_right}> </div>
         </div>
       </div>
     </div>

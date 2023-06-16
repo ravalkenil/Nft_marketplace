@@ -6,13 +6,13 @@ import { MdVerified } from 'react-icons/md';
 import Style from "./DayCom.module.css";
 import images from "../../../img";
 
-const DayCom = () => {
+const DayCom = ({ el,i}) => {
   return (
     <div className={Style.daycom}>
         <div className={Style.daycom_box}>
             <div className={Style.daycom_box_img}>
-                <Image src={images.creatorbackground1} className={Style.daycom_box_img_img} alt='Profile background' width={500} height={300} objectfit="covers"/>
-            </div>
+                <Image src={el.background} className={Style.daycom_box_img_img} alt='Profile background' width={500} height={300} objectfit="covers"/>
+            </div> 
             <div className={Style.daycom_box_profile}>
                 <Image src={images.creatorbackground2} alt='profile' width={150} height={150} className={Style.daycom_box_img_1} objectfit="covers"/>
                 <Image src={images.creatorbackground2} alt='profile' width={150} height={150} className={Style.daycom_box_img_2} objectfit="covers"/>
@@ -22,10 +22,10 @@ const DayCom = () => {
                 <h2>Amazing collection</h2>
                 <div className={Style.daycom_box_title_info}>
                   <div className={Style.daycom_box_title_info_profile}>
-                      <Image src={images.user1} alt='profile' width={30} height={30} objectfit="covers" className={Style.daycom_box_title_info_profile_img}/>
+                      <Image src={el.user} alt='profile' width={30} height={30} objectfit="covers" className={Style.daycom_box_title_info_profile_img}/>
                       <p>
                           Creator <span>Kenil Bhai <small><MdVerified/></small></span>
-                      </p>
+                      </p> 
                   </div>
                   <div className={Style.daycom_box_title_info_price}>
                         <small>1.255 ETH</small>
