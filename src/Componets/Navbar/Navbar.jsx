@@ -29,6 +29,7 @@ const Navbar = () => {
   const openMenu = async(e)=>{
     
     const btnText =e.target.innerText;
+    console.log(btnText);
     if(btnText == "Discover"){
       setdiscover(true)
       sethelp(false)

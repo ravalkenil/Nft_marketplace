@@ -8,13 +8,13 @@ import images from "../../img";
 
 const Collectionprofile = () => {
 
-    const CardArray = [1,2,3,4,5];
+    const CardArray = [1,2,3,4];
 
   return (
     <div className={Style.collectionprofile}>
         <div className={Style.collectionprofile_box}>
             <div className={Style.collectionprofile_box_left}>
-            <Image src={images.nft_image_1} alt='nft image' width={800} height={800} className={Style.collectionprofile_box_left_img}/>
+            <Image src={images.nft_image_1} alt='nft image' width={400} height={400} className={Style.collectionprofile_box_left_img}/>
             <div className={Style.collectionprofile_box_left_social}>
                 <a href="#"> <TiSocialFacebook/> </a>
                 <a href="#"> <TiSocialLinkedin/> </a>
@@ -30,8 +30,10 @@ const Collectionprofile = () => {
                 <div className={Style.collectionprofile_box_middle_box}>
                     {
                         CardArray.map((el,i)=> (
-                            <div>
-                                
+                            <div className={Style.collectionprofile_box_middle_box_item} key={i+1}>
+                                <small>Floor Price</small>
+                                <p>${i+1}9500000</p>
+                                <span>+{i+2}.11%</span>
                             </div>
                         ))
                     }

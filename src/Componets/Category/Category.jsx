@@ -11,26 +11,24 @@ const Category = () => {
   return (
     <div className={Style.box_category}>
     <div className={Style.category}>
-        
         {
             Categoryarray.map((el,i)=>{
                 return(
                         <div className={Style.category_box} key={1+1}>
                         <Image src={el} className={Style.category_box_img} alt="Background image" width={350} height={150} objectFit='cover' />
-                        <div className={Style.category_box_title}>
-                            <span>
-                               <BsCircleFill />
-                            </span>
-                            <div className={Style.category_box_title_info}>
-                                <h4>Enteratainment</h4>
-                                <small>1994 NFTs</small>
+                            <div className={Style.category_box_title}>
+                                <span>
+                                    <BsCircleFill />
+                                </span>
+                                <div className={Style.category_box_title_info}>
+                                    <h4>Enteratainment</h4>
+                                    <small>1994 NFTs</small>
+                                </div>
                             </div>
-                        </div>
                        </div>   
                 )
             })
         }
-        
     </div>
     </div>
   )

@@ -11,7 +11,7 @@ const Banner = ({bannerImage}) => {
             <Image src={bannerImage} objectFit='Cover' alt='background' width={1600} height={300}/>
         </div>
         <div className={Style.banner_img_mobile}>
-            <Image src={bannerImage} objectFit='cover' alt='background' width={1600} height={900}/>
+            <Image src={bannerImage} objectFit='Cover' alt='background' width={1600} height={900}/>
         </div>
     </div>
   )
