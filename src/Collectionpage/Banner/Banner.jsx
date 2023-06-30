@@ -8,7 +8,7 @@ const Banner = ({bannerImage}) => {
   return (
     <div className={Style.banner}>
         <div className={Style.banner_img}>
-            <Image src={bannerImage} objectFit='Cover' alt='background' width={1600} height={300}/>
+            <Image src={bannerImage} objectFit='Cover' alt='background' width={1830} height={300}/>
         </div>
         <div className={Style.banner_img_mobile}>
             <Image src={bannerImage} objectFit='Cover' alt='background' width={1600} height={900}/>

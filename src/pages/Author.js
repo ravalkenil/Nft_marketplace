@@ -44,7 +44,7 @@ const Author = () => {
   return (
     <div className={Style.author}>
     <Banner bannerImage={images.creatorbackground2} />
-    <Authorprofilecard />
+    <Authorprofilecard className={Style.author_banner} />
     <Authortaps
       setCollectiables={setCollectiables}
       setCreated={setCreated}
@@ -52,7 +52,6 @@ const Author = () => {
       setFollower={setFollower}
       setFollowing={setFollowing}
     />
-
     <Authornftcard
       collectiables={collectiables}
       created={created}

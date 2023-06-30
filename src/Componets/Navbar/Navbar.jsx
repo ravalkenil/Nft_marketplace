@@ -26,27 +26,49 @@ const Navbar = () => {
 
   // console.log("----------------------");
 
-  const openMenu = async(e)=>{
+  // const openMenu = async(e)=>{
     
-    const btnText =e.target.innerText;
-    console.log(btnText);
-    if(btnText == "Discover"){
-      setdiscover(true)
+  //   const btnText =e.target.innerText;
+  //   console.log(btnText);
+  //   if(btnText == "Discover"){
+  //     setdiscover(true)
+  //     sethelp(false)
+  //     setnotification(false)
+  //     setprofile(false)
+  //   }
+  //   else if(btnText == "Help Center"){
+  //     setdiscover(false)
+  //     sethelp(true)
+  //     setnotification(false)
+  //     setprofile(false)
+  //   }
+  //   else{
+  //     setdiscover(false)
+  //     sethelp(false)
+  //     setnotification(false)
+  //     setprofile(false)
+  //   }
+  // }
+
+  const openMenu=()=>{
+    if(!discover){
+      setdiscover(true);
       sethelp(false)
       setnotification(false)
       setprofile(false)
-    }
-    else if(btnText == "Help Center"){
+    }else{
       setdiscover(false)
+    }
+  }
+
+  const openhelp=()=>{
+    if(!help){
+      setdiscover(false);
       sethelp(true)
       setnotification(false)
       setprofile(false)
-    }
-    else{
-      setdiscover(false)
+    }else{
       sethelp(false)
-      setnotification(false)
-      setprofile(false)
     }
   }
 
@@ -100,7 +122,7 @@ const Navbar = () => {
 
             {/* discover menu */}
         
-            <p onClick={(e)=>openMenu(e)}>Discover</p>
+            <p onClick={()=>openMenu()}>Discover</p>
             {
               discover && (
                   <div className={Style.navbar_container_right_discover_box}>
@@ -113,7 +135,7 @@ const Navbar = () => {
             {/* help center */}
 
             <div className={Style.navbar_container_right_help}>
-              <p onClick={(e)=>openMenu(e)} >Help Center</p>
+              <p onClick={()=>openhelp()} >Help Center</p>
               {
               help && (
                   <div className={Style.navbar_container_right_help_box}>

@@ -17,6 +17,8 @@
     border-radius: 1rem;
     box-shadow: var(--box-shadow);
     gap: 3rem;
+    margin-top: -15rem;
+    position: relative;
 }
 
 .AuthorProfileCard_box_img_img{
