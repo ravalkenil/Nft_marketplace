@@ -1,10 +1,17 @@
-import React from 'react'
+import React,{ useContext,useEffect,useState } from 'react';
 
 // Internal imports
 import Style from "../styles/upload_nft.module.css";
 import { Uploadnft } from "../Uploadnft/Uploadnftindex";
 
+// Smart contract import 
+
+import  { NFtmarketplaceContext } from "../context/NFTmarketplaceContext";
+
 const upload_nft = () => {
+
+  const {  uploadtoipfs, creatNFt } = useContext(NFtmarketplaceContext);
+
   return (
     <div className={Style.uploadNFT}>
       <div className={Style.uploadNFT_box}>
@@ -25,7 +32,7 @@ const upload_nft = () => {
         </div>
 
         <div className={Style.uploadNFT_box_form}>
-          <Uploadnft />
+          <Uploadnft  uploadtoipfs={uploadtoipfs} creatNFt={creatNFt} />
         </div>
       </div>
     </div>

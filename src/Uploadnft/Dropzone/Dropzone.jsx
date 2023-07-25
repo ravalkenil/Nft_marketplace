@@ -10,7 +10,7 @@ const Dropzone = ({
     title,
     heading,
     subHeading,
-    itemName,
+    name,
     website,
     description,
     royalties,
@@ -18,11 +18,19 @@ const Dropzone = ({
     category,
     properties,
     image,
+    uploadtoipfs,
+    setimage,
   }) => {
     const [fileUrl, setFileUrl] = useState(null);
   
     const onDrop = useCallback(async (acceptedFile) => {
-      setFileUrl(acceptedFile[0]);
+      console.log("------",acceptedFile[0]);
+      const url=URL.createObjectURL(acceptedFile[0])
+
+      // const url = await uploadtoipfs(acceptedFile[0]);
+      console.log(url);
+      setFileUrl(url)
+      setimage(acceptedFile[0])
     });
   
     const { getRootProps, getInputProps } = useDropzone({
@@ -38,7 +46,9 @@ const Dropzone = ({
             <p>{title}</p>
             <div className={Style.DropZone_box_input_img}>
               <Image
-                src={image}
+                src={images.upload}
+                // src="https://bafkreigtr6cuvyhgxt4p3ifnwop2weebebsnun5kgnmk336wq6kqmseg6i.ipfs.nftstorage.link/"
+                // src="http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blend.png"
                 alt="upload"
                 width={100}
                 height={100}
@@ -55,7 +65,9 @@ const Dropzone = ({
           <aside className={Style.DropZone_box_aside}>
             <div className={Style.DropZone_box_aside_box}>
               <Image
-                src={images.nft_image_1}
+                src={fileUrl}
+                // src="https://bafkreigtr6cuvyhgxt4p3ifnwop2weebebsnun5kgnmk336wq6kqmseg6i.ipfs.nftstorage.link/" 
+                // src="http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blend.png"
                 alt="nft image"
                 width={200}
                 height={200}
@@ -65,11 +77,11 @@ const Dropzone = ({
                 <div className={Style.DropZone_box_aside_box_preview_one}>
                   <p>
                     <samp>NFT Name:</samp>
-                    {itemName || ""}
+                    {name || ""}
                   </p>
                   <p>
                     <samp>Website:</samp>
-                    {website || ""}
+                    {website || "" }
                   </p>
                 </div>
   

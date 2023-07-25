@@ -1,14 +1,21 @@
-import React from 'react'
-
-
+import React,{useContext,useEffect,useState} from 'react';
 
 
 // Internal imports
 import Style from "../styles/Index.module.css";
 import {Herosection,Service,Bignftslider,Subscribe ,Title,Category,Filter,NFTcard ,Collection ,Followertab ,AudioLive,Slider ,Brand ,Video} from "../Componets/Com_index";
 
+// Importing contract data
+import { NFtmarketplaceContext } from "../context/NFTmarketplaceContext";
 
 const index = () => {
+
+  const {  chackifWalletconnect } =useContext(NFtmarketplaceContext);
+
+  useEffect(() => {
+    chackifWalletconnect() 
+  }, [])
+  
   return (
     <div className={Style.homepage}>
       <Herosection/> 

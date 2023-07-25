@@ -1,0 +1,17 @@
+.reselltoken{
+    width: 100%;
+    margin-block: 4rem;
+}
+
+.reselltoken_box{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.reselltoken_box h1{
+    font-size: 3rem;
+}
+
+.reselltoken_box_image{
+    margin-block: 4rem;
+}

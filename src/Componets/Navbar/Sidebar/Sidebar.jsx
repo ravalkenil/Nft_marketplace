@@ -9,7 +9,7 @@ import Style from "./Sidebar.module.css";
 import images from "../../../img";
 import Button from "../../Button/Button";
 import { Helpcenter } from '..';
-const Sidebar = ({setopensidemenu}) => {
+const Sidebar = ({setopensidemenu ,connectwallet,currentAcc}) => {
 
   const [openDiscover, setopenDiscover] = useState(false);
   const [openHelp, setOpenHelp] = useState(false);
@@ -160,8 +160,13 @@ const Sidebar = ({setopensidemenu}) => {
       </div>
 
       <div className={Style.sideBar_button}>
-        <Button btnName="Create"  handleclick={()=>{}}  />
-        <Button btnName="Connect Wallet"  handleclick={()=>{}} />
+        {
+          currentAcc==""? (<Button btnName="Connect Wallet"  handleclick={()=>connectwallet()} />):
+          (<Link href={{pathname:"/upload_nft"}}>
+              <Button btnName="Create"  handleclick={()=>{}}  />
+          </Link>
+           )
+        }
       </div>
     </div>
   )

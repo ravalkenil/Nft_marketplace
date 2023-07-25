@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect ,useContext } from "react";
 import Image from "next/image";
 import {
   MdVerified,
@@ -17,6 +17,8 @@ import {
   TiSocialInstagram,
 } from "react-icons/ti";
 import { BiTransferAlt, BiDollar } from "react-icons/bi";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 // Internal import
 import Style from "./Nftdescription.module.css";
@@ -24,13 +26,17 @@ import images from "../../img";
 import { Button } from "@/Componets/Com_index";
 import { Nfttabs } from "../Nftdetailsindex";
 
+// Import Smart contract
+import { NFtmarketplaceContext } from "@/context/NFTmarketplaceContext";
 
-const Nftdescription = () => {
+const Nftdescription = ({nft}) => {
     const [social, setSocial] = useState(false);
     const [NFTMenu, setNFTMenu] = useState(false);
     const [history, setHistory] = useState(true);
     const [provanance, setProvanance] = useState(false);
     const [owner, setOwner] = useState(false);
+
+    const router= useRouter()
   
     const historyArray = [
       images.user1,
@@ -46,6 +52,7 @@ const Nftdescription = () => {
       images.user9,
       images.user10,
     ];
+
     const ownerArray = [
       images.user1,
       images.user8,
@@ -97,6 +104,9 @@ const Nftdescription = () => {
       }
     };
   
+    // Smart contract data
+    const { currentAcc ,buyNft }= useContext(NFtmarketplaceContext);
+
     return (
       <div className={Style.NFTDescription}>
         <div className={Style.NFTDescription_box}>
@@ -108,7 +118,7 @@ const Nftdescription = () => {
                 className={Style.NFTDescription_box_share_box_icon}
                 onClick={() => openSocial()}
               />
-  
+
               {social && (
                 <div className={Style.NFTDescription_box_share_box_social}>
                   <a href="#">
@@ -154,7 +164,7 @@ const Nftdescription = () => {
           </div>
           {/* //Part TWO */}
           <div className={Style.NFTDescription_box_profile}>
-            <h1>BearX #23453</h1>
+            <h1>{nft.name}#{nft.tokenid}</h1>
             <div className={Style.NFTDescription_box_profile_box}>
               <div className={Style.NFTDescription_box_profile_box_left}>
                 <Image
@@ -166,15 +176,17 @@ const Nftdescription = () => {
                 />
                 <div className={Style.NFTDescription_box_profile_box_left_info}>
                   <small>Creator</small> <br />
-                  <span>
-                    Karli Costa <MdVerified />
-                  </span>
+                  <Link href={{pathname:"/Author" ,query:`${nft.seller}`}}>
+                    <span>
+                      Karli Costa <MdVerified />
+                    </span>
+                  </Link>
                 </div>
               </div>
   
               <div className={Style.NFTDescription_box_profile_box_right}>
                 <Image
-                  src={images.user2}
+                  src={images.creatorbackground1}
                   alt="profile"
                   width={40}
                   height={40}
@@ -238,7 +250,7 @@ const Nftdescription = () => {
                 >
                   <small>Current Bid</small>
                   <p>
-                    1.000 ETH <span>( ≈ $3,221.22)</span>
+                    {nft.price} ETH 
                   </p>
                 </div>
   
@@ -246,12 +258,33 @@ const Nftdescription = () => {
               </div>
   
               <div className={Style.NFTDescription_box_profile_biding_box_button}>
-                <Button
+                {
+                  currentAcc == nft.seller.toLowerCase() ? (
+                    <p>
+                      you can't buy your own NFT
+                    </p>
+                  ): currentAcc== nft.owner.toLowerCase() ? (
+                    <Button
+                      icon=<FaWallet/>
+                      btnName="List on marketplace"
+                      handleclick={() => router.push(`/reselltoken?id=${nft.tokenId}&tokenURI=${nft.tokenUri}`)}
+                      classStyle={Style.button}
+                    />
+                  ) :(
+                    <Button
+                      icon=<FaWallet/>
+                      btnName="Buy Nft" 
+                      handleclick={()=> buyNft(nft)}
+                      classStyle={Style.button}
+                    />
+                  )
+                }
+                {/* <Button
                   icon=<FaWallet/>
                   btnName="Place a bid"
                   handleClick={() => {}}
                   classStyle={Style.button}
-                />
+                /> */}
                 <Button
                   icon=<FaPercentage/>
                   btnName="Make offer"

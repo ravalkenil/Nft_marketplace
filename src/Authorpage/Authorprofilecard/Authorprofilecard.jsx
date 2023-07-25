@@ -20,9 +20,9 @@ import Style from "./Authorprofilecard.module.css";
 import images from "../../img";
 import { Button } from "@/Componets/Com_index";
 
-const Authorprofilecard = () => {
+const Authorprofilecard = ({currentAcc}) => {
 
-    const [share, setShare] = useState(false);
+  const [share, setShare] = useState(false);
   const [report, setReport] = useState(false);
 
   //copyAddress function
@@ -75,7 +75,7 @@ const Authorprofilecard = () => {
         <div className={Style.AuthorProfileCard_box_info_address}>
           <input
             type="text"
-            value="0x829BD824B03D092293333..A830"
+            value={currentAcc}
             id="myInput"
           />
           <FiCopy

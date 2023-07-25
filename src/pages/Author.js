@@ -1,12 +1,17 @@
-import React, {useEffect,useState} from 'react';
+import React, {useEffect,useState ,useContext} from 'react';
 
 // Internal import
+
 import Style from "../styles/Author.module.css";
 import { Banner ,Nftcardtwo} from '@/Collectionpage/collectionindex';
 import { Brand ,Title } from '@/Componets/Com_index';
 import Followertabcard from '@/Componets/Followertab/Followertabcard/Followertabcard';
 import images from "../img";
 import { Authorprofilecard,Authortaps,Authornftcard} from '@/Authorpage/Comindex';
+
+// Import Smart contract data
+
+import { NFtmarketplaceContext } from '@/context/NFTmarketplaceContext';
 
 const Author = () => {
     const followerArray = [
@@ -41,10 +46,31 @@ const Author = () => {
     const [like, setLike] = useState(false);
     const [follower, setFollower] = useState(false);
     const [following, setFollowing] = useState(false);
+
+    // import contract
+    const { FetchingNftorListedNft ,  currentAcc} = useContext(NFtmarketplaceContext)
+
+    const [nfts, setnfts] = useState([])
+    const [Mynfts, setMynfts] = useState([])
+
+    useEffect(()=>{
+      FetchingNftorListedNft("fetchItemListed").then((items)=>{
+        console.log("fetchItemListed",items);
+        setMynfts(items)
+      })
+    },[]);
+
+    useEffect(()=>{
+      FetchingNftorListedNft("fetchMyNft").then((items)=>{
+        console.log("fetchMyNft",items);
+        setnfts(items)
+      })
+    },[]);
+
   return (
     <div className={Style.author}>
     <Banner bannerImage={images.creatorbackground2} />
-    <Authorprofilecard className={Style.author_banner} />
+    <Authorprofilecard className={Style.author_banner} currentAcc={currentAcc}/>
     <Authortaps
       setCollectiables={setCollectiables}
       setCreated={setCreated}
@@ -58,6 +84,8 @@ const Author = () => {
       like={like}
       follower={follower}
       following={following}
+      nfts={nfts}
+      Mynfts={Mynfts}
     />
     <Title
       heading="Popular Creators"

@@ -28,8 +28,8 @@ const Helpcenter = () => {
       {
           helpcenters.map((el,i)=>{
             return (
-              <div className={Style.Helpcenter}>
-                <Link href={{pathname:`${el.link}`}}>{el.name}</Link>
+              <div className={Style.Helpcenter} key={i+1}>
+                <Link href={{pathname:`${el.link}`}}> {el.name} </Link>
               </div>
             )
           })

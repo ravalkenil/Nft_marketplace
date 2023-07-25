@@ -8,11 +8,12 @@ import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 import Style from "./Nftdetailsimg.module.css";
 import images from "../../img";
 
-const Nftdetailsimg = () => {
+const Nftdetailsimg = ({nft}) => {
     const [description, setDescription] = useState(true);
     const [details, setDetails] = useState(true);
     const [like, setLike] = useState(false);
-  
+
+    console.log("nft",nft);
     const openDescription = () => {
       if (!description) {
         setDescription(true);
@@ -36,7 +37,11 @@ const Nftdetailsimg = () => {
         setLike(false);
       }
     };
-  
+    
+    useEffect(()=>{
+      console.log(nft);
+    },[])
+
     return (
       <div className={Style.NFTDetailsImg}>
         <div className={Style.NFTDetailsImg_box}>
@@ -58,8 +63,8 @@ const Nftdetailsimg = () => {
             </div>
   
             <div className={Style.NFTDetailsImg_box_NFT_img}>
-              <Image
-                src={images.nft_image_1}
+              <img
+                src={nft.image}
                 className={Style.NFTDetailsImg_box_NFT_img_img}
                 alt="NFT image"
                 width={700}
@@ -80,10 +85,7 @@ const Nftdetailsimg = () => {
           {description && (
             <div className={Style.NFTDetailsImg_box_description_box}>
               <p>
-                Tattooed Kitty Gang (“TKG”) is a collection of 666 badass kitty
-                gangsters, with symbol of tattoos, living in the Proud Kitty Gang
-                (“PKG”) metaverse. Each TKG is an 1/1 ID as gangster member & all
-                the joint rights.
+                {nft.description}
               </p>
             </div>
           )}
@@ -102,11 +104,11 @@ const Nftdetailsimg = () => {
               <p>
                 <small>Contract Address</small>
                 <br></br>
-                0x50f5474724e0ee42d9a4e711ccfb275809fd6d4a
+                {nft.seller}
               </p>
               <p>
                 <small>Token ID</small>
-                100300372864
+                &nbsp; &nbsp; {nft.tokenid}
               </p>
             </div>
           )}
