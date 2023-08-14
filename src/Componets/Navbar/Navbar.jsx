@@ -15,6 +15,7 @@ import Style from "./Navbar.module.css";
 import { Discover, Helpcenter, Notification, Profile, Sidebar } from "./index";
 import { Button } from "../Com_index";
 import images from "../../img";
+import Error from "../Error/Error";
 
 // Import smart contract
 import { NFtmarketplaceContext } from "../../context/NFTmarketplaceContext";
@@ -107,7 +108,7 @@ const Navbar = () => {
   };
 
   // smart contract section
-  const { currentAcc, connectwallet } = useContext(NFtmarketplaceContext);
+  const { currentAcc, connectwallet, openError} = useContext(NFtmarketplaceContext);
 
   return (
     <div className={Style.navbar}>
@@ -119,6 +120,7 @@ const Navbar = () => {
               alt="NFT MARKETPLACE"
               width={100}
               height={100}
+              onClick={()=>router.push("/")}
             />
           </div>
           <div className={Style.navbar_container_left_box_input}>
@@ -128,6 +130,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
+
         {/* end of left section */}
         <div className={Style.navbar_container_right}>
           <div className={Style.navbar_container_right_discover}>
@@ -184,7 +187,7 @@ const Navbar = () => {
                 onClick={() => openProfile()}
                 className={Style.navbar_container_right_profile}
               />
-              {profile && <Profile />}
+              {profile && <Profile currentAcc={currentAcc}/>}
             </div>
           </div>
 
@@ -208,6 +211,10 @@ const Navbar = () => {
           />
         </div>
       )}
+
+      {
+        openError &&  <Error/>
+      }
     </div>
   );
 };

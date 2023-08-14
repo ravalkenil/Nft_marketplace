@@ -49,7 +49,6 @@ const reselltoken = () => {
       } catch (error) {
         console.log("Error while resell ",error);
       }
-     
     }
     
   return (

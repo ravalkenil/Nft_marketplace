@@ -2,7 +2,7 @@ import React ,{ useEffect, useState , useContext} from 'react';
 
 // Internal imports
 import Style from "../styles/Searchpage.module.css";
-import { Slider,Brand ,Filter} from '@/Componets/Com_index';
+import { Slider,Brand ,Filter ,Loader} from '@/Componets/Com_index';
 import { SearchBar } from '@/Searchcomponts/SearchBarindex';
 import { Nftcardtwo ,Banner} from '@/Collectionpage/collectionindex';
 import images from "../img";
@@ -55,7 +55,7 @@ const Searchpage = () => {
         <Banner bannerImage={images.creatorbackground2} />
         <SearchBar onHandleSearch={onHandleSearch}  onClearSearch={onClearSearch}/>
         <Filter />
-        <Nftcardtwo Nftdata={nfts} />
+        {nfts.length == 0 ? <Loader/> : <Nftcardtwo Nftdata={nfts} /> }       
         <Slider />
         <Brand />
       </div>

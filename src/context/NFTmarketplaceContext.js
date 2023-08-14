@@ -40,6 +40,8 @@ export const NFtmarketplaceContext = React.createContext();
 export const NFTmarketplaceprovider = ({ children }) => {
   const titledata = "Discover ,collect and sell NFTs ";
 
+  const [error, seterror] = useState("")
+  const [openError, setopenError] = useState(false)
   const [currentAcc, setcurrentAcc] = useState("");
   const router = useRouter()
 
@@ -50,7 +52,10 @@ export const NFTmarketplaceprovider = ({ children }) => {
   // --Chack if wallet is connected
   const chackifWalletconnect = async () => {
     try {
-      if (!window.ethereum) return console.log("Please Install metamask");
+      if (!window.ethereum) return 
+        setopenError(true),
+        seterror("Install Metamask")
+      
 
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
       // const accounts = await window.ethereum.request({
@@ -60,23 +65,27 @@ export const NFTmarketplaceprovider = ({ children }) => {
       if (accounts.length) {
         setcurrentAcc(accounts[0]);
       } else {
-        console.log("No Account");
+        seterror("No Account Found")
+        setopenError(true)
+        // console.log("No Account");
       }
     } catch (error) {
-      console.log("somthing wrong connection");
+      seterror("somthing wrong connection")
+      setopenError(true)
     }
   };
 
   const connectwallet = async () => {
     try {
-      if (!window.ethereum) return console.log("Please Install metamask");
+      if (!window.ethereum) return setopenError(true),seterror("Install Metamask")
 
       const accounts =await window.ethereum.request({ method: 'eth_requestAccounts' })
       console.log(accounts);
       setcurrentAcc(accounts[0]);
       // window.location.reload();
     } catch (error) {
-      console.log("Error while connecting to wallet");
+      seterror("Error while connecting to wallet")
+      setopenError(true)
     }
   };
 
@@ -88,7 +97,8 @@ export const NFTmarketplaceprovider = ({ children }) => {
       // const url = `${subdomain}/ipfs/${added.path}`; 
       return url;
     } catch (error) {
-      console.log("Error while uploading file");
+      setopenError(true)
+      seterror("Error while uploading file")
     }
   };
 
@@ -124,7 +134,8 @@ export const NFTmarketplaceprovider = ({ children }) => {
         console.log(error);
       }
     } catch (error) {
-      console.log(" Error while creating NFT ");
+      seterror(" Error while creating NFT ")
+      setopenError(true)
     }
   };
 
@@ -149,7 +160,8 @@ export const NFTmarketplaceprovider = ({ children }) => {
         console.log("==================done");
         router.push("/Searchpage")
     } catch (error) {
-      console.log("while creating sale",error);
+      seterror("while creating sale",error)
+      setopenError(true)
     }
   };
 
@@ -180,7 +192,8 @@ export const NFTmarketplaceprovider = ({ children }) => {
         console.log(items);
         return items;
     } catch (error) {
-        console.log("Error while fetching Nft",error); 
+        seterror("Error while fetching Nft",error); 
+        setopenError(true)
     }
   }
 
@@ -216,7 +229,8 @@ export const NFTmarketplaceprovider = ({ children }) => {
       console.log(items);
       return items;
     } catch (error) {
-      console.log("Error fetching Listed Nfts");
+      seterror("Error fetching Listed Nfts");
+      setopenError(true)
     }
   }
 
@@ -232,14 +246,15 @@ export const NFTmarketplaceprovider = ({ children }) => {
         await transaction.wait();
         router.push("/Author")
       } catch (error) {
-        console.log("Error while buying NFT",error);
+        seterror("Error while buying NFT",error);
+        setopenError(true)
       }
   }
 
 
   return (
     <NFtmarketplaceContext.Provider
-      value={{ titledata, connectwallet, creatNFt, uploadtoipfs ,createsale,fetchNFt,chackifWalletconnect,FetchingNftorListedNft,buyNft ,currentAcc}}
+      value={{ titledata, connectwallet, creatNFt, uploadtoipfs ,createsale,fetchNFt,chackifWalletconnect,FetchingNftorListedNft,buyNft ,currentAcc ,setopenError,openError,error }}
     >
       {children}
     </NFtmarketplaceContext.Provider>

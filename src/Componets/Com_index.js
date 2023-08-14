@@ -17,6 +17,7 @@ import Likeprofile from "./Likeprofile/Likeprofile";
 import Slider from "./Slider/Slider";
 import Brand from "./Brand/Brand";
 import Video from "./Video/Video";
+import Loader from "./Loader/Loader";
 // const Com_index = () => {
 //   return (
 //     <div>Com_index</div>
@@ -41,5 +42,6 @@ export {
   Likeprofile,
   Brand,
   Slider,
-  Video
+  Video,
+  Loader
 };

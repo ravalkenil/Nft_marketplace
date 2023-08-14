@@ -8,14 +8,14 @@ import {TbDownloadOff,TbDownload} from "react-icons/tb"
 import Style from "./Profile.module.css";
 import images from "../../../img"
 import Link from 'next/link'
-const Profile = () => {
+const Profile = ({currentAcc}) => {
   return (
     <div className={Style.Profile}>
       <div className={Style.Profile_account}>
         <Image src={images.user1} alt="user profile " width={50} height={50} className={ Style.profile_account_img}/>
         <div className={Style.profile_account_info}>
           <p>kenil raval</p>
-          <small>X0514265285615dsd5454sa..</small>
+          <small>{currentAcc.slice(0,20)}...</small>
         </div>
       </div> 
       <div className={Style.profile_menu}>
@@ -23,17 +23,17 @@ const Profile = () => {
 
           <div className={Style.profile_menu_one_item}>
             <FaUserAlt/>
-            <p><Link href={{pathname:"/myprofile"}}> My profile </Link></p>
+            <p><Link href={{pathname:"/Author"}}> My profile </Link></p>
           </div>
 
           <div className={Style.profile_menu_one_item}>
             <FaRegImage/>
-            <p><Link href={{pathname:"/my-items"}}> My Items </Link></p>
+            <p><Link href={{pathname:"/Author"}}> My Items </Link></p>
           </div>
 
           <div className={Style.profile_menu_one_item}>
             <FaUserEdit/>
-            <p><Link href={{pathname:"/edit-profile"}}> Edit profile </Link></p>
+            <p><Link href={{pathname:"/account"}}> Edit profile </Link></p>
           </div>
 
         </div>
@@ -42,13 +42,13 @@ const Profile = () => {
           <div className={Style.profile_menu_one_item}>
             <MdHelpCenter/>
             <p>
-              <Link href={{pathname:"/help"}}>Help</Link>
+              <Link href={{pathname:"/contactus"}}>Help</Link>
             </p>
           </div>
           <div className={Style.profile_menu_one_item}>
             <TbDownload/>
             <p>
-              <Link href={{pathname:"/disconnect"}}>Disconnect</Link>
+              <Link href={{pathname:"/aboutus"}}>Aboutus</Link>
             </p>
           </div>
         </div>

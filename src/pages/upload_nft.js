@@ -4,8 +4,7 @@ import React,{ useContext,useEffect,useState } from 'react';
 import Style from "../styles/upload_nft.module.css";
 import { Uploadnft } from "../Uploadnft/Uploadnftindex";
 
-// Smart contract import 
-
+// Smart contract import  
 import  { NFtmarketplaceContext } from "../context/NFTmarketplaceContext";
 
 const upload_nft = () => {

@@ -6,10 +6,10 @@ import Style from "./Followertab.module.css";
 import Followertabcard from './Followertabcard/Followertabcard';
 import images from "../../img";
 
-const Followertab = () => {
-    const CardArray=[{background:images.creatorbackground1 , user:images.user1},{background:images.creatorbackground2 , user:images.user2},{background:images.creatorbackground3 , user:images.user3},{background:images.creatorbackground4 , user:images.user4},
-        {background:images.creatorbackground5, user:images.user5},{background:images.creatorbackground6 , user:images.user6},
-        {background:images.creatorbackground7 , user:images.user7}];
+const Followertab = ({Topcreator}) => {
+    // const CardArray=[{background:images.creatorbackground1 , user:images.user1},{background:images.creatorbackground2 , user:images.user2},{background:images.creatorbackground3 , user:images.user3},{background:images.creatorbackground4 , user:images.user4},
+    //     {background:images.creatorbackground5, user:images.user5},{background:images.creatorbackground6 , user:images.user6},
+    //     {background:images.creatorbackground7 , user:images.user7}];
 
     const FollwingArray=[{background:images.creatorbackground4 , user:images.user4},{background:images.creatorbackground8 , user:images.user8},
         {background:images.creatorbackground5, user:images.user5},{background:images.creatorbackground6 , user:images.user6},
@@ -91,7 +91,7 @@ const Followertab = () => {
         {
             popular && (
                 <div className={Style.followertab_box}>
-                    {CardArray.map((el,i)=>{
+                    {Topcreator.map((el,i)=>{
                         return(
                             <Followertabcard key={i+1} i={i} el={el}/>
                         )
@@ -111,3 +111,11 @@ const Followertab = () => {
 }
 
 export default Followertab
+
+
+// Ping tac toe
+// Helmet
+// Bottle flip
+// Cookie on forehead
+// Red light green light
+// Riddle

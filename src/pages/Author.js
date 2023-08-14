@@ -18,26 +18,32 @@ const Author = () => {
         {
           background: images.creatorbackground1,
           user: images.user1,
+          seller:"dawdwesdfrw3r3246detwefdv"
         },
         {
           background: images.creatorbackground2,
           user: images.user2,
+          seller:"dawdwesdfrw3r3246detwefdv"
         },
         {
           background: images.creatorbackground3,
           user: images.user3,
+          seller:"dawdwesdfrw3r3246detwefdv"
         },
         {
           background: images.creatorbackground4,
           user: images.user4,
+          seller:"dawdwesdfrw3r3246detwefdv"
         },
         {
           background: images.creatorbackground5,
           user: images.user5,
+          seller:"dawdwesdfrw3r3246detwefdv"
         },
         {
           background: images.creatorbackground6,
           user: images.user6,
+          seller:"dawdwesdfrw3r3246detwefdv"
         },
       ];
 
@@ -99,7 +105,6 @@ const Author = () => {
 
     <Brand />
   </div>
-
   )
 }
 

@@ -1,13 +1,19 @@
-import React, {useEffect,useState} from 'react';
+import React, {useEffect,useState,useContext} from 'react';
 import Image from 'next/image';
 
 // Internal imports
 import Style from "../styles/connectwallet.module.css";
 import images from "../img";
 
+// Import from Smart contract
+import {NFtmarketplaceContext}  from "../context/NFTmarketplaceContext";
+
+
 const connectWallet = () => {
 
     const [activeBtn, setactiveBtn] = useState(1);
+    const { currentAcc ,connectwallet }=useContext(NFtmarketplaceContext);
+
     const providerArray = [
         {
           provider: images.provider1,
@@ -41,7 +47,7 @@ const connectWallet = () => {
                 activeBtn == i + 1 ? Style.active : ""
               }`}
               key={i + 1}
-              onClick={() => setActiveBtn(i + 1)}
+              onClick={() => (setActiveBtn(i + 1),connectwallet())}
             >
               <Image
                 src={el.provider}
