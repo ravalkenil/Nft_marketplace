@@ -1,8 +1,8 @@
 export const getTopCreators = (creators) => {
   const finalCreator = [];
-  const finalResults = creators.reduce((index, currentValue) => {
-    (index[currentValue.seller] = index[currentValue.seller] || []).push(currentValue);
-    return index;
+  const finalResults = creators.reduce((Index, currentValue) => {
+    (Index[currentValue.seller] = Index[currentValue.seller] || []).push(currentValue);
+    return Index;
   }, {});
   console.log("finalResults",finalResults);
   Object.entries(finalResults).forEach((item) => {

@@ -4,22 +4,22 @@ import { useRouter } from 'next/router';
 
 import Style from "../styles/reselltoken.module.css";
 import formStyle from "../Accountpage/Form/Form.module.css";
-import { Button } from "@/Componets/Com_index";
+import { Button } from "../Componets/Com_index";
 
 // import contract
  
-import { NFtmarketplaceContext } from "@/context/NFTmarketplaceContext";
+import { useNFtmarketplaceContext } from "../context/NFTmarketplaceContext";
 import axios from "axios";
 
-const reselltoken = () => {
-    const { createsale }= useContext(NFtmarketplaceContext);
+const Reselltoken = () => {
+    const { Createsale }= useContext(useNFtmarketplaceContext);
 
     const [price, setprice] = useState("");
     const [image, setimage] = useState("");
     const router=useRouter()
     const { id ,tokenURI} =router.query;
 
-    const fetchNFT = async()=>{
+    const FetchNFt = async()=>{
         if(!tokenURI) return ;
         try{
           const url = tokenURI.replace('ipfs://','');
@@ -33,18 +33,18 @@ const reselltoken = () => {
           console.log(image1);
           setimage(image1)
         }catch(error){
-          console.log("This is fetchnft ",error);
+          console.log("This is FetchNFt ",error);
         }
         
     }
 
     useEffect(() => {
-        fetchNFT()
+        FetchNFt()
     }, [id])
 
     const resell =async()=>{
       try {
-        await  createsale(tokenURI,price,true,id)
+        await  Createsale(tokenURI,price,true,id)
         router.push("/Author")  
       } catch (error) {
         console.log("Error while resell ",error);
@@ -52,8 +52,8 @@ const reselltoken = () => {
     }
     
   return (
-    <div className={Style.reselltoken}>
-      <div className={Style.reselltoken_box}>
+    <div className={Style.Reselltoken}>
+      <div className={Style.Reselltoken_box}>
         <h1>Resell your Token ,Set price</h1>
         <div className={formStyle.Form_box_input}>
           <label htmlFor="name">Price</label>
@@ -66,12 +66,12 @@ const reselltoken = () => {
           />
         </div>
 
-        <div className={Style.reselltoken_box_image}>
+        <div className={Style.Reselltoken_box_image}>
             {
                 image && (  <img src={image} alt="resell nft" width={400} height={400} /> )
             }
         </div>
-        <div className={Style.reselltoken_box_btn}>
+        <div className={Style.Reselltoken_box_btn}>
             <Button btnName="Resell NFT" handleclick={()=>resell()} />
         </div>
       </div>
@@ -79,4 +79,4 @@ const reselltoken = () => {
   );
 };
 
-export default reselltoken;
+export default Reselltoken;

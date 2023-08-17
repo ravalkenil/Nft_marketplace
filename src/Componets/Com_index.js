@@ -18,9 +18,9 @@ import Slider from "./Slider/Slider";
 import Brand from "./Brand/Brand";
 import Video from "./Video/Video";
 import Loader from "./Loader/Loader";
-// const Com_index = () => {
+// const Com_Index = () => {
 //   return (
-//     <div>Com_index</div>
+//     <div>Com_Index</div>
 //   )
 // }
 

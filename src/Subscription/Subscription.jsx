@@ -3,7 +3,7 @@ import { TiTick } from "react-icons/ti";
 
 // Inetrnal imports 
 import Style from "./Subscription.module.css";
-import { Button } from "@/Componets/Com_index";
+import  Button  from "../Componets/Button/Button";
 
 const Subscription = ({ el, i }) => {
     return (

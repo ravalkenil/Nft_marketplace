@@ -30,7 +30,7 @@
 .NFTcard_box_update{
     grid-column: 1 /-1;
     grid-row: 1 /-2;
-    z-index: 111111;
+    z-Index: 111111;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -92,7 +92,7 @@
     grid-column: 1 /-1;
     grid-row: 3 /-1;
     line-height: 0;
-    z-index: 11111;
+    z-Index: 11111;
     align-items: flex-end;
     display: grid;
     grid-template-columns: 1.5fr 1fr;

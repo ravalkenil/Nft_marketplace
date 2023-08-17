@@ -4,7 +4,7 @@ import Image from "next/image";
 // Internal imports
 
 import Style from "../styles/aboutus.module.css";
-import { Brand } from "@/Componets/Com_index";
+import { Brand } from "../Componets/Com_index";
 import images from "../img";
 
 const aboutus = () => {
@@ -38,7 +38,7 @@ const aboutus = () => {
       },
       {
         title: "100,000",
-        info: "Registered users account (as of Sept. 30, 2021)",
+        info: "Registered users Account (as of Sept. 30, 2021)",
       },
       {
         title: "220+",
@@ -73,13 +73,14 @@ const aboutus = () => {
           <div className={Style.aboutus_box_founder}>
             <div className={Style.aboutus_box_founder_box}>
               {founderArray.map((el, i) => (
-                <div className={Style.aboutus_box_founder_box_img}>
+                <div className={Style.aboutus_box_founder_box_img} key={i}>
                   <Image
                     src={el.images}
                     alt={el.name}
                     width={300}
                     height={300}
                     className={Style.aboutus_box_founder_box_img_img}
+                    
                   />
                   <h3>{el.name}</h3>
                   <p>{el.position}</p>
@@ -99,7 +100,7 @@ const aboutus = () => {
           <div className={Style.aboutus_box_facts}>
             <div className={Style.aboutus_box_facts_box}>
               {factsArray.map((el, i) => (
-                <div className={Style.aboutus_box_facts_box_info}>
+                <div className={Style.aboutus_box_facts_box_info} key={i}>
                   <h3>{el.title}</h3>
                   <p>{el.info}</p>
                 </div>

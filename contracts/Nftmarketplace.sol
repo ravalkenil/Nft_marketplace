@@ -29,7 +29,7 @@
 //         }
 
 //         event idMarketItemcreated(
-//             uint256 indexed tokenId,
+//             uint256 Indexed tokenId,
 //             address seller,
 //             address owner,
 //             uint256  price,
@@ -85,7 +85,7 @@
 
 //         //function resale token
 
-//         function reSelltokens(uint256 tokenId,uint256 price) public payable{
+//         function Reselltokens(uint256 tokenId,uint256 price) public payable{
 //             require(idMarketItem[tokenId].owner == msg.sender,"Only item owner can perfome the opertion");
 //             require(msg.value == ListingPrice," Price must be equal to list");
 //             idMarketItem[tokenId].sold=false;
@@ -99,7 +99,7 @@
 
 //         // function createitemsale
 
-//         function createsale(uint256 tokenId) public payable {
+//         function Createsale(uint256 tokenId) public payable {
 //             uint256 price = idMarketItem[tokenId].price;
 //             require(msg.value == price ,"Please submit a asking price in the oredrd to complate the purchse");
 //             idMarketItem[tokenId].owner= payable(msg.sender);
@@ -215,7 +215,7 @@ contract Nftmarketplace is ERC721URIStorage {
     }
 
     event MarketItemCreated(
-        uint256 indexed tokenId,
+        uint256 Indexed tokenId,
         address seller,
         address owner,
         uint256 price,
@@ -281,7 +281,7 @@ contract Nftmarketplace is ERC721URIStorage {
     }
 
     /* allows someone to resell a token they have purchased */
-    function resellToken(uint256 tokenId, uint256 price) public payable {
+    function Reselltoken(uint256 tokenId, uint256 price) public payable {
         require(
             idToMarketItem[tokenId].owner == msg.sender,
             "Only item owner can perform this operation"

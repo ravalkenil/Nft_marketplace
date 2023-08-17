@@ -4,6 +4,10 @@ const nextConfig = {
   images: {
     domains: ["*"],
   },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  }
+
 }
 
 module.exports = nextConfig

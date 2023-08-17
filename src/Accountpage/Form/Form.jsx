@@ -9,7 +9,7 @@ import {
   
 // Internal imports
 import Style from "./Form.module.css";
-import { Button } from '@/Componets/Com_index';
+import  Button  from '../../Componets/Button/Button';
 
 
 const Form = () => {

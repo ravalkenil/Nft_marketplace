@@ -6,10 +6,10 @@ import Style from './Error.module.css';
 import images from "../../img";
 
 // Smart contract imports
-import { NFtmarketplaceContext }  from "../../context/NFTmarketplaceContext";
+import  useNFtmarketplaceContext   from "../../context/NFTmarketplaceContext";
 
 const Error = () => {
-    const { error,  setopenError } = useContext(NFtmarketplaceContext);
+  const { error,  setopenError } = useContext(useNFtmarketplaceContext);
     
   return (
     <div className={Style.Error} onClick={()=> setopenError(false)}>

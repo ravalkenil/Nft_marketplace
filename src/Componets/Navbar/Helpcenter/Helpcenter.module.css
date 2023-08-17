@@ -1,7 +1,7 @@
 .Helpcenter{
     padding: .5rem 1rem;
     transition: all .10s ease-in;
-    z-index: 222222222;
+    z-Index: 222222222;
 }
 
 .Helpcenter:hover{

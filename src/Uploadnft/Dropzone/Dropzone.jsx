@@ -18,7 +18,7 @@ const Dropzone = ({
     category,
     properties,
     image,
-    uploadtoipfs,
+    Uploadtoipfs,
     setimage,
   }) => {
     const [fileUrl, setFileUrl] = useState(null);
@@ -27,7 +27,7 @@ const Dropzone = ({
       console.log("------",acceptedFile[0]);
       const url=URL.createObjectURL(acceptedFile[0])
 
-      // const url = await uploadtoipfs(acceptedFile[0]);
+      // const url = await Uploadtoipfs(acceptedFile[0]);
       console.log(url);
       setFileUrl(url)
       setimage(acceptedFile[0])

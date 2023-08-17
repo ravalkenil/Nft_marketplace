@@ -12,7 +12,7 @@ import {
 
 import Style from "../styles/contectus.module.css";
 import formStyle from "../Accountpage/Form/Form.module.css";
-import { Button } from '@/Componets/Com_index';
+import { Button } from '../Componets/Com_index';
 
 const contectus = () => {
   return (

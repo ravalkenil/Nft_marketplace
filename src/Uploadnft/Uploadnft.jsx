@@ -10,10 +10,10 @@ import { useRouter } from "next/router";
 import Style from "./Uploadnft.module.css"
 import formStyle from "../Accountpage/Form/Form.module.css";
 import images from "../img";
-import { Button } from "@/Componets/Com_index";
+import { Button } from "../Componets/Com_index";
 import { Dropzone } from "./Uploadnftindex";
 
-const Uploadnft = ({uploadtoipfs, creatNFt}) => {
+const Uploadnft = ({Uploadtoipfs, CreatNFt}) => {
   
   const [price, setprice] = useState("");
   const [active, setActive] = useState(0);
@@ -70,7 +70,7 @@ const Uploadnft = ({uploadtoipfs, creatNFt}) => {
         properties={properties}
         setimage={setimage}
         image={image}
-        uploadtoipfs={uploadtoipfs}
+        Uploadtoipfs={Uploadtoipfs}
       />
 
       <div className={Style.upload_box}>
@@ -99,7 +99,7 @@ const Uploadnft = ({uploadtoipfs, creatNFt}) => {
           </div>
 
           <p className={Style.upload_box_input_para}>
-            Ciscrypt will include a link to this URL on this item's detail page,
+            Ciscrypt will include a link to this URL on this item&apos;s detail page,
             so that users can click to learn more about it. You are welcome to
             link to your own webpage with more details.
           </p>
@@ -116,7 +116,7 @@ const Uploadnft = ({uploadtoipfs, creatNFt}) => {
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
           <p>
-            The description will be included on the item's detail page
+            The description will be included on the item&apos;s detail page
             underneath its image. Markdown syntax is supported.
           </p>
         </div>
@@ -214,7 +214,7 @@ const Uploadnft = ({uploadtoipfs, creatNFt}) => {
         <div className={Style.upload_box_btn}>
           <Button
             btnName="Upload"
-            handleclick={async() => creatNFt(name,price,image,description,router)}
+            handleclick={async() => CreatNFt(name,price,image,description,router)}
             classStyle={Style.upload_box_btn_style}
           />
           <Button

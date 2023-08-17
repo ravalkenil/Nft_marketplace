@@ -3,8 +3,8 @@ import React, { useState } from "react";
 // Internal imports
 import Style from "./Authornftcard.module.css";
 import images from "../../img";
-import { Nftcardtwo } from '@/Collectionpage/collectionindex';
-import Followertabcard from '@/Componets/Followertab/Followertabcard/Followertabcard';
+import { Nftcardtwo } from '../../Collectionpage/collectionindex';
+import Followertabcard from '../../Componets/Followertab/Followertabcard/Followertabcard';
 
 const Authornftcard = ({
   collectiables,
@@ -97,14 +97,14 @@ const Authornftcard = ({
       {follower && (
         <div className={Style.AuthorNFTCardBox_box}>
           {followerArray.map((el, i) => (
-            <Followertabcard i={i} el={el} />
+            <Followertabcard i={i} el={el} key={i}/>
           ))}
         </div>
       )}
       {following && (
         <div className={Style.AuthorNFTCardBox_box}>
           {followingArray.map((el, i) => (
-            <Followertabcard i={i} el={el} />
+            <Followertabcard i={i} el={el} key={i}/>
           ))}
         </div>
       )}

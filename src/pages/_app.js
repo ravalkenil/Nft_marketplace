@@ -1,5 +1,5 @@
-import "@/styles/globals.css";
-import { Navbar, Footer } from "@/Componets/Com_index";
+import "../styles/globals.css";
+import { Navbar, Footer } from "../Componets/Com_index";
 import { NFTmarketplaceprovider } from "../context/NFTmarketplaceContext";
 
 const App = ({ Component, pageProps }) => {

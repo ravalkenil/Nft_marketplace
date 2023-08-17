@@ -3,15 +3,16 @@ import React, {useEffect,useState ,useContext} from 'react';
 // Internal import
 
 import Style from "../styles/Author.module.css";
-import { Banner ,Nftcardtwo} from '@/Collectionpage/collectionindex';
-import { Brand ,Title } from '@/Componets/Com_index';
-import Followertabcard from '@/Componets/Followertab/Followertabcard/Followertabcard';
+import Banner  from '../Collectionpage/Banner/Banner';
+import Nftcardtwo  from "../Collectionpage/Nftcardtwo/Nftcardtwo"
+import { Brand ,Title } from '../Componets/Com_index';
+import Followertabcard from '../Componets/Followertab/Followertabcard/Followertabcard';
 import images from "../img";
-import { Authorprofilecard,Authortaps,Authornftcard} from '@/Authorpage/Comindex';
+import { Authorprofilecard,Authortaps,Authornftcard} from '../Authorpage/Comindex';
 
 // Import Smart contract data
 
-import { NFtmarketplaceContext } from '@/context/NFTmarketplaceContext';
+import { useNFtmarketplaceContext } from '../context/NFTmarketplaceContext';
 
 const Author = () => {
     const followerArray = [
@@ -54,7 +55,7 @@ const Author = () => {
     const [following, setFollowing] = useState(false);
 
     // import contract
-    const { FetchingNftorListedNft ,  currentAcc} = useContext(NFtmarketplaceContext)
+    const { FetchingNftorListedNft ,  currentAcc} = useContext(useNFtmarketplaceContext)
 
     const [nfts, setnfts] = useState([])
     const [Mynfts, setMynfts] = useState([])
@@ -99,7 +100,7 @@ const Author = () => {
     />
     <div className={Style.author_box}>
       {followerArray.map((el, i) => (
-        <Followertabcard i={i} el={el} />
+        <Followertabcard i={i} el={el} key={i}/>
       ))}
     </div>
 

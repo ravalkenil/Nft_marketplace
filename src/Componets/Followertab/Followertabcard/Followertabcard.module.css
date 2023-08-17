@@ -16,7 +16,7 @@
 
 .followertabcard_rank{
     position: absolute;
-    z-index: 11111;
+    z-Index: 11111;
     background-color: var(--icons-color);
     color: var(--main-bg-color);
     line-height: 0;
@@ -51,7 +51,7 @@
 .followertabcard_box_profile_img{
     border-radius:50%;
     padding: 1rem;
-    z-index: 222;
+    z-Index: 222;
     position: relative; 
 }
 

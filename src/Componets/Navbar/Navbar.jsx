@@ -18,7 +18,7 @@ import images from "../../img";
 import Error from "../Error/Error";
 
 // Import smart contract
-import { NFtmarketplaceContext } from "../../context/NFTmarketplaceContext";
+import  {useNFtmarketplaceContext}  from "../../context/NFTmarketplaceContext";
 
 const Navbar = () => {
   // --usestate
@@ -108,7 +108,7 @@ const Navbar = () => {
   };
 
   // smart contract section
-  const { currentAcc, connectwallet, openError} = useContext(NFtmarketplaceContext);
+  const { currentAcc, Connectwallet, openError} = useContext(useNFtmarketplaceContext);
 
   return (
     <div className={Style.navbar}>
@@ -167,11 +167,11 @@ const Navbar = () => {
           {/* create button sections */}
           <div className={Style.navbar_container_right_button}>
             {currentAcc == "" ? (
-              <Button btnName="Connect" handleclick={() => connectwallet()} />
+              <Button btnName="Connect" handleclick={() => Connectwallet()} />
             ) : (
               <Button
                 btnName="Create"
-                handleclick={() => router.push("/upload_nft")}
+                handleclick={() => router.push("/Upload_nft")}
               />
             )}
           </div>
@@ -207,7 +207,7 @@ const Navbar = () => {
           <Sidebar
             setopensidemenu={setopensidemenu}
             currentAcc={currentAcc}
-            connectwallet={connectwallet}
+            Connectwallet={Connectwallet}
           />
         </div>
       )}

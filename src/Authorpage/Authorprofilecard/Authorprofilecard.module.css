@@ -1,7 +1,7 @@
 
 .AuthorProfileCard{
     width: 100%;
-    z-index: 22222;
+    z-Index: 22222;
     margin-top: 5rem;
 }
 
@@ -107,7 +107,7 @@
     background-color: var(--main-bg-color);
     left: 2rem;
     top: 5rem;
-    z-index: 1111111;
+    z-Index: 1111111;
 }
 
 
@@ -140,7 +140,7 @@
     background-color: var(--main-bg-color);
     left: 5rem;
     top: 4rem;
-    z-index: 111111;
+    z-Index: 111111;
 }
 
 .AuthorProfileCard_box_share_report p{

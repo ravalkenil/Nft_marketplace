@@ -2,7 +2,7 @@
     width: 100%;
     padding-block: 1.5 rem;
     position: relative;
-    z-index: 111111;
+    z-Index: 111111;
 }
 
 .navbar_container{
@@ -115,7 +115,7 @@
     height: 100vh;
     overflow-y: auto;
     display: none;
-    z-index: 11111;
+    z-Index: 11111;
 }
 
 .Sidebar::-webkit-scrollbar{

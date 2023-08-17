@@ -4,20 +4,16 @@ import React,{useContext,useEffect,useState} from 'react';
 // Internal imports
 import Style from "../styles/Index.module.css";
 import {Herosection,Service,Bignftslider,Subscribe ,Title,Category,Filter,NFTcard ,Collection ,Followertab ,AudioLive,Slider ,Brand ,Video} from "../Componets/Com_index";
-import { getTopCreators } from '@/TopCreators/TopCreators';
+import { getTopCreators } from '../TopCreators/TopCreators';
 
 // Importing contract data
-import { NFtmarketplaceContext } from "../context/NFTmarketplaceContext";
+import { useNFtmarketplaceContext } from "../context/NFTmarketplaceContext";
 
-const index = () => {
 
-  const {  chackifWalletconnect } =useContext(NFtmarketplaceContext);
 
-  useEffect(() => {
-    chackifWalletconnect() 
-  }, [])
+const Index = () => {
 
-  const {fetchNFt}= useContext(NFtmarketplaceContext);
+    const {  useChackifWalletconnect ,FetchNFt} =useContext(useNFtmarketplaceContext);
     const [nfts, setnfts] = useState([]);
     const [nftcopy, setnftcopy] = useState([]);
     
@@ -26,7 +22,14 @@ const index = () => {
     console.log(creators);
 
     useEffect(() => {
-      fetchNFt().then((item)=>{
+      const Chack=async ()=>{
+        await useChackifWalletconnect();
+      }
+      Chack();
+    }, [])
+
+    useEffect(() => {
+      FetchNFt().then((item)=>{
         setnfts(item);
         setnftcopy(item)
         console.log("--------------",item);
@@ -57,4 +60,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index

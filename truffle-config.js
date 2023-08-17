@@ -16,7 +16,7 @@
  *
  * Infura deployment needs a wallet provider (like @truffle/hdwallet-provider)
  * to sign transactions before they're sent to a remote public node.
- * Infura accounts are available for free at 🔍: https://infura.io/register
+ * Infura Accounts are available for free at 🔍: https://infura.io/register
  *
  * You'll need a mnemonic - the twelve word phrase the wallet uses to generate
  * public/private key pairs. You can store your secrets 🤐 in a .env file.
@@ -76,7 +76,7 @@ module.exports = {
     //   network_id: 1342,       // Custom network
     //   gas: 8500000,           // Gas sent with each transaction (default: ~6700000)
     //   gasPrice: 20000000000,  // 20 gwei (in wei) (default: 100 gwei)
-    //   from: <address>,        // Account to send transactions from (default: accounts[0])
+    //   from: <address>,        // Account to send transactions from (default: Accounts[0])
     //   websocket: true         // Enable EventEmitter interface for web3 (default: false)
     // },
     //
@@ -132,7 +132,7 @@ module.exports = {
   //   enabled: false,
   //   host: "127.0.0.1",
   //   adapter: {
-  //     name: "indexeddb",
+  //     name: "Indexeddb",
   //     settings: {
   //       directory: ".db"
   //     }

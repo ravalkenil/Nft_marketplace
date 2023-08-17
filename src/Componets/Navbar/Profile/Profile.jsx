@@ -11,9 +11,9 @@ import Link from 'next/link'
 const Profile = ({currentAcc}) => {
   return (
     <div className={Style.Profile}>
-      <div className={Style.Profile_account}>
-        <Image src={images.user1} alt="user profile " width={50} height={50} className={ Style.profile_account_img}/>
-        <div className={Style.profile_account_info}>
+      <div className={Style.Profile_Account}>
+        <Image src={images.user1} alt="user profile " width={50} height={50} className={ Style.profile_Account_img}/>
+        <div className={Style.profile_Account_info}>
           <p>kenil raval</p>
           <small>{currentAcc.slice(0,20)}...</small>
         </div>
@@ -33,7 +33,7 @@ const Profile = ({currentAcc}) => {
 
           <div className={Style.profile_menu_one_item}>
             <FaUserEdit/>
-            <p><Link href={{pathname:"/account"}}> Edit profile </Link></p>
+            <p><Link href={{pathname:"/Account"}}> Edit profile </Link></p>
           </div>
 
         </div>

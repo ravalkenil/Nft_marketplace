@@ -3,8 +3,8 @@ import React from 'react';
 // Internal imports
 import Style from "../styles/collection.module.css";
 import images from "../img";
-import { Banner ,Collectionprofile ,Nftcardtwo } from '@/Collectionpage/collectionindex';
-import { Slider,Brand } from '@/Componets/Com_index';
+import { Banner ,Collectionprofile ,Nftcardtwo } from '../Collectionpage/collectionindex';
+import { Slider,Brand } from '../Componets/Com_index';
 import Filter from "../Componets/Filter/Filter";
 
 

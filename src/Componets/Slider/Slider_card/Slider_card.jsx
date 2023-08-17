@@ -5,7 +5,7 @@ import Image from 'next/image';
 // internal import
 import Style from "./Slider.module.css";
 import images from "../../../img";
-import { Likeprofile } from '@/Componets/Com_index';
+import { Likeprofile } from '../../Com_index';
 
 const Slider_card = ({el,i}) => {
 

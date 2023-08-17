@@ -49,9 +49,9 @@ const Slider = () => {
                         {
                             sliderArray.map((el,i)=>{
                                 return(
-                                    <div>
-                                        <Slider_card key={i+1} el={el} i={i}/>
-                                    </div>
+                                    
+                                        <Slider_card el={el} i={i} key={i+1}/>
+                                    
                                 )
                             })
                         }

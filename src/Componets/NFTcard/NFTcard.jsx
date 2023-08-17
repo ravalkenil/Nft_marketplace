@@ -28,7 +28,7 @@ const NFTcard = ({NFTdata}) => {
     <div className={Style.NFtcard}>
         { NFTdata.map((el,i)=>{
             return(
-                <Link href={{pathname:"/Nftdetails",query: el }}>
+                <Link href={{pathname:"/Nftdetails",query: el }} key={i}>
                 <div className={Style.NFTcard_box} key={i+1}>
                     <div className={Style.NFTcard_box_img}>
                         {/* <Image src={el} alt='NFT images' width={600} height={600} className={Style.NFTcard_box_img_img}/> */}

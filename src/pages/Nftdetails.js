@@ -2,15 +2,15 @@ import React ,{ useEffect,useState, useContext } from 'react'
 import { useRouter } from 'next/router';
 
 // Internal imports
-import { Button,Category ,Brand } from '@/Componets/Com_index';
-import Nftdetailspage from '@/Nftdetails_page/Nftdetailspage';
+import { Button,Category ,Brand } from '../Componets/Com_index';
+import Nftdetailspage from '../Nftdetails_page/Nftdetailspage';
 
 // Import contract
-import { NFtmarketplaceContext } from '@/context/NFTmarketplaceContext';
+import { useNFtmarketplaceContext } from '../context/NFTmarketplaceContext';
 
 const Nftdetails = () => {
 
-    const { currentAcc }= useContext(NFtmarketplaceContext)
+    const { currentAcc }= useContext(useNFtmarketplaceContext)
 
     const [nft, setnft] = useState({
       image:"",

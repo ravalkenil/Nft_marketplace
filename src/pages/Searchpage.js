@@ -2,22 +2,22 @@ import React ,{ useEffect, useState , useContext} from 'react';
 
 // Internal imports
 import Style from "../styles/Searchpage.module.css";
-import { Slider,Brand ,Filter ,Loader} from '@/Componets/Com_index';
-import { SearchBar } from '@/Searchcomponts/SearchBarindex';
-import { Nftcardtwo ,Banner} from '@/Collectionpage/collectionindex';
+import { Slider,Brand ,Filter ,Loader} from '../Componets/Com_index';
+import { SearchBar } from '../Searchcomponts/SearchBarindex';
+import { Nftcardtwo ,Banner} from '../Collectionpage/collectionindex';
 import images from "../img";
 
 // import smart contract
-import { NFtmarketplaceContext } from "../context/NFTmarketplaceContext"
+import { useNFtmarketplaceContext } from "../context/NFTmarketplaceContext"
 
 const Searchpage = () => {
 
-    const {fetchNFt}= useContext(NFtmarketplaceContext);
+    const {FetchNFt}= useContext(useNFtmarketplaceContext);
     const [nfts, setnfts] = useState([]);
     const [nftcopy, setnftcopy] = useState([]);
 
     useEffect(() => {
-      fetchNFt().then((item)=>{
+      FetchNFt().then((item)=>{
         setnfts(item);
         setnftcopy(item)
         console.log("--------------",item);

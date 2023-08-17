@@ -9,7 +9,7 @@ import Style from "./Sidebar.module.css";
 import images from "../../../img";
 import Button from "../../Button/Button";
 import { Helpcenter } from '..';
-const Sidebar = ({setopensidemenu ,connectwallet,currentAcc}) => {
+const Sidebar = ({setopensidemenu ,Connectwallet,currentAcc}) => {
 
   const [openDiscover, setopenDiscover] = useState(false);
   const [openHelp, setOpenHelp] = useState(false);
@@ -37,7 +37,7 @@ const Sidebar = ({setopensidemenu ,connectwallet,currentAcc}) => {
       link : "nft-details"
     },{
       name : "Account Setting",
-      link : "account-setting"
+      link : "Account-setting"
     },{
       name : "Connect Wallet",
       link : "connect-wallet"
@@ -161,8 +161,8 @@ const Sidebar = ({setopensidemenu ,connectwallet,currentAcc}) => {
 
       <div className={Style.sideBar_button}>
         {
-          currentAcc==""? (<Button btnName="Connect Wallet"  handleclick={()=>connectwallet()} />):
-          (<Link href={{pathname:"/upload_nft"}}>
+          currentAcc==""? (<Button btnName="Connect Wallet"  handleclick={()=>Connectwallet()} />):
+          (<Link href={{pathname:"/Upload_nft"}}>
               <Button btnName="Create"  handleclick={()=>{}}  />
           </Link>
            )

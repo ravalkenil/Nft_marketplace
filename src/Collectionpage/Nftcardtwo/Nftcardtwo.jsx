@@ -7,7 +7,8 @@ import Link from 'next/link';
 
 // Internal imports
 import Style from "./Nftcardtwo.module.css";
-import { Likeprofile } from '@/Componets/Com_index';
+import  Likeprofile  from '../../Componets/Com_index';
+
 
 const Nftcardtwo = ({Nftdata}) => {
     const [like, setlike] = useState(false);

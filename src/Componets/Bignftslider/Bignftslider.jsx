@@ -8,7 +8,7 @@ import {TbArrowBigLeftLines,TbArrowBigRightLines} from "react-icons/tb"
 // internal
 import Style from "./Bignftslider.module.css";
 import images from "../../img";
-import { Button } from '../Com_index';
+import  Button  from '../Button/Button';
 
 const Bignftslider = () => {
     const [Idnumber, setIdnumber] = useState(1);

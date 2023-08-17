@@ -1,29 +1,29 @@
-.connectWallet{
+.Connectwallet{
     width: 100%;
     margin-block: 5rem;
 }
 
-.connectWallet_box{
+.Connectwallet_box{
     width: 50%;
     margin:  0 auto;
 }
 
-.connectWallet_box h1{
+.Connectwallet_box h1{
     font-size: 3rem;
     line-height: 0;
 }
 
-.connectWallet_box_para{
+.Connectwallet_box_para{
     font-size: 1.5rem;
     padding-bottom: 2rem;
     border-bottom:  1px solid var(--shadow-dark-color);
 }
 
-.connectWallet_box_provider{
+.Connectwallet_box_provider{
     margin-block: 5rem;
 }
 
-.connectWallet_box_provider_item{
+.Connectwallet_box_provider_item{
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -35,15 +35,15 @@
     transition: all .3s ease-in;
 }
 
-.connectWallet_box_provider_item:hover{
+.Connectwallet_box_provider_item:hover{
     background-color: var(--shadow-dark-color);
 }
 
-.connectWallet_box_provider_item_img{
+.Connectwallet_box_provider_item_img{
     border-radius: 50%;
 }
 
-.connectWallet_box_provider_item p{
+.Connectwallet_box_provider_item p{
     font-size: 1.5rem;
     line-height: 0;
 }
@@ -52,11 +52,11 @@
     box-shadow: var(--box-shadow);
 }
 @media screen and (max-width: 35em) {
-    .connectWallet_box{
+    .Connectwallet_box{
         width: 90%;
     }
 
-    .connectWallet_box h1{
+    .Connectwallet_box h1{
         font-size: 1.5rem;
     }
 }

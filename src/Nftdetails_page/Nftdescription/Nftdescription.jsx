@@ -23,11 +23,11 @@ import { useRouter } from "next/router";
 // Internal import
 import Style from "./Nftdescription.module.css";
 import images from "../../img";
-import { Button } from "@/Componets/Com_index";
-import { Nfttabs } from "../Nftdetailsindex";
+import  Button  from "../../Componets/Button/Button";
+import  Nfttabs  from "../Nfttabs/Nfttabs";
 
 // Import Smart contract
-import { NFtmarketplaceContext } from "@/context/NFTmarketplaceContext";
+import  useNFtmarketplaceContext  from "../../context/NFTmarketplaceContext";
 
 const Nftdescription = ({nft}) => {
     const [social, setSocial] = useState(false);
@@ -105,7 +105,7 @@ const Nftdescription = ({nft}) => {
     };
   
     // Smart contract data
-    const { currentAcc ,buyNft }= useContext(NFtmarketplaceContext);
+    const { currentAcc ,BuyNft }= useContext(useNFtmarketplaceContext);
 
     return (
       <div className={Style.NFTDescription}>
@@ -261,20 +261,20 @@ const Nftdescription = ({nft}) => {
                 {
                   currentAcc == nft.seller.toLowerCase() ? (
                     <p>
-                      you can't buy your own NFT
+                      you can&apos;t buy your own NFT
                     </p>
                   ): currentAcc== nft.owner.toLowerCase() ? (
                     <Button
                       icon=<FaWallet/>
                       btnName="List on marketplace"
-                      handleclick={() => router.push(`/reselltoken?id=${nft.tokenId}&tokenURI=${nft.tokenUri}`)}
+                      handleclick={() => router.push(`/Reselltoken?id=${nft.tokenId}&tokenURI=${nft.tokenUri}`)}
                       classStyle={Style.button}
                     />  
                   ) :(
                     <Button
                       icon=<FaWallet/>
                       btnName="Buy Nft" 
-                      handleclick={()=> buyNft(nft)}
+                      handleclick={()=> BuyNft(nft)}
                       classStyle={Style.button}
                     />
                   )

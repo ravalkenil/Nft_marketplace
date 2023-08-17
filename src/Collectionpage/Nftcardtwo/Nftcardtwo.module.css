@@ -23,7 +23,7 @@
     padding: 1rem;
     grid-column: 1 / -1;
     grid-row: 1 / -1;
-    z-index: 111111;
+    z-Index: 111111;
 }
 
 .NFTCardTwo_box_like_box_box{

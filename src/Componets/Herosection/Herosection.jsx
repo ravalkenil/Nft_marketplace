@@ -4,14 +4,14 @@ import Image from 'next/image'
 // internal
 
 import Style from "./Herosection.module.css";
-import {Button}  from "../Com_index";   
+import { Button }  from "../Com_index";   
 import images from "../../img"
 
 // Smart contract imports
-import { NFtmarketplaceContext} from "../../context/NFTmarketplaceContext";
+import {useNFtmarketplaceContext} from "../../context/NFTmarketplaceContext";
 
 const Herosection = () => {
-  const {titledata } = useContext(NFtmarketplaceContext)
+  const {titledata } = useContext(useNFtmarketplaceContext)
   return (
     <div className={Style.herosection}>
         <div className={Style.herosection_box}>

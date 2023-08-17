@@ -8,25 +8,25 @@
     border-radius: 1rem;
     left: -17rem;
     top: 4.5rem;
-    z-index: 2222222222;
+    z-Index: 2222222222;
     background-color: var(--main-bg-color);
 }
 
-.Profile_account{
+.Profile_Account{
     display: flex;
     align-items: flex-start;
     gap: 2rem;
     padding: 1.5rem ;
 }
 
-.profile_account_img{
+.profile_Account_img{
     border-radius: 50%;
 }
-.profile_account_info{
+.profile_Account_info{
     line-height: 0.3;
 }
 
-.profile_account_info p{
+.profile_Account_info p{
     font-weight: 600;
 }
 .profile_menu{

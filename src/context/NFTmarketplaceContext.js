@@ -22,7 +22,7 @@ const fetchContract = (signerOrprovider) =>
   new ethers.Contract(NftmarketplaceAddress, NftmarketAbi, signerOrprovider);
 
 // ----CONNECTINHG WITH SMARTCONTRACT
-const connectingwithcontract = async () => {
+const Connectingwithcontract = async () => {
   try {
     const web3model = new Webb3model();
     const connection = await web3model.connect();
@@ -35,7 +35,7 @@ const connectingwithcontract = async () => {
   }
 };
 
-export const NFtmarketplaceContext = React.createContext();
+export const useNFtmarketplaceContext = React.createContext();
 
 export const NFTmarketplaceprovider = ({ children }) => {
   const titledata = "Discover ,collect and sell NFTs ";
@@ -46,24 +46,24 @@ export const NFTmarketplaceprovider = ({ children }) => {
   const router = useRouter()
 
   useEffect(() => {
-    fetchNFt();
+    FetchNFt();
   }, [])
 
   // --Chack if wallet is connected
-  const chackifWalletconnect = async () => {
+  const useChackifWalletconnect = async () => {
     try {
       if (!window.ethereum) return 
         setopenError(true),
         seterror("Install Metamask")
       
 
-      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
-      // const accounts = await window.ethereum.request({
+      const Accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+      // const Accounts = await window.ethereum.request({
       //   method: 'wallet_requestPermissions',
-      //   params: [{ eth_accounts: {} }],
+      //   params: [{ eth_Accounts: {} }],
       // })
-      if (accounts.length) {
-        setcurrentAcc(accounts[0]);
+      if (Accounts.length) {
+        setcurrentAcc(Accounts[0]);
       } else {
         seterror("No Account Found")
         setopenError(true)
@@ -75,13 +75,13 @@ export const NFTmarketplaceprovider = ({ children }) => {
     }
   };
 
-  const connectwallet = async () => {
+  const Connectwallet = async () => {
     try {
       if (!window.ethereum) return setopenError(true),seterror("Install Metamask")
 
-      const accounts =await window.ethereum.request({ method: 'eth_requestAccounts' })
-      console.log(accounts);
-      setcurrentAcc(accounts[0]);
+      const Accounts =await window.ethereum.request({ method: 'eth_requestAccounts' })
+      console.log(Accounts);
+      setcurrentAcc(Accounts[0]);
       // window.location.reload();
     } catch (error) {
       seterror("Error while connecting to wallet")
@@ -90,7 +90,7 @@ export const NFTmarketplaceprovider = ({ children }) => {
   };
 
   //----Upload to IPFS Function
-  const uploadtoipfs = async (file) => {
+  const Uploadtoipfs = async (file) => {
     try {
       const url = new File([file] , 'nft.png', { type: 'image/png' });
       // const added = await client.add({ content: file });
@@ -105,7 +105,7 @@ export const NFTmarketplaceprovider = ({ children }) => {
 
 
   // ----Create Nft fucntion
-  const creatNFt = async (name,price,image,description,router) => {
+  const CreatNFt = async (name,price,image,description,router) => {
     try {
       // const { name, description, price } = forminput;
       if (!name || !description || !price || !image ) {
@@ -129,7 +129,7 @@ export const NFTmarketplaceprovider = ({ children }) => {
         // console.log(url);
         // const added = await client.add(data);
         // const url = `https://infura-ipfs.io/ipfs/${added.path}`;
-        await createsale(imgurl1, price );
+        await Createsale(imgurl1, price );
       } catch (error) {
         console.log(error);
       }
@@ -140,10 +140,10 @@ export const NFTmarketplaceprovider = ({ children }) => {
   };
 
   // ----Create sale function
-  const createsale = async (url, inputprice, isreselling, id ) => {
+  const Createsale = async (url, inputprice, isreselling, id ) => {
     try {
       const price = ethers.utils.parseUnits(inputprice, "ether");
-      const contract = await connectingwithcontract();
+      const contract = await Connectingwithcontract();
       console.log("-----------------",contract);
       const listingprice = await contract.getListingPrice();
       console.log("----",listingprice);
@@ -151,7 +151,7 @@ export const NFTmarketplaceprovider = ({ children }) => {
         ? await contract.createToken(url, price, {
             value: listingprice.toString(),
           })
-        : await contract.resellToken(id, price, {
+        : await contract.Reselltoken(id, price, {
             value: listingprice.toString(),
           });
 
@@ -166,7 +166,7 @@ export const NFTmarketplaceprovider = ({ children }) => {
   };
 
   //----Fetching function
-  const fetchNFt= async()=>{
+  const FetchNFt= async()=>{
     try {
         const url="HTTP://127.0.0.1:7545";
         const provider= new ethers.providers.JsonRpcProvider(url);
@@ -200,7 +200,7 @@ export const NFTmarketplaceprovider = ({ children }) => {
   // ---Fetchnig NFt or Listing Nft
   const FetchingNftorListedNft=async(type)=>{
     try {
-      const contract= await connectingwithcontract();
+      const contract= await Connectingwithcontract();
       const data= type == "fetchItemListed" ? await contract.fetchItemsListed() : await contract.fetchMyNFTs()
       console.log("----------------",data);
       const items= await Promise.all(
@@ -234,9 +234,9 @@ export const NFTmarketplaceprovider = ({ children }) => {
     }
   }
 
-  const buyNft=async(nft)=>{
+  const BuyNft=async(nft)=>{
       try {
-        const contract= await connectingwithcontract();
+        const contract= await Connectingwithcontract();
         console.log(contract);
         console.log(nft.price);
         const price= (ethers.utils.parseUnits(nft.price.toString(),"ether"))
@@ -253,10 +253,10 @@ export const NFTmarketplaceprovider = ({ children }) => {
 
 
   return (
-    <NFtmarketplaceContext.Provider
-      value={{ titledata, connectwallet, creatNFt, uploadtoipfs ,createsale,fetchNFt,chackifWalletconnect,FetchingNftorListedNft,buyNft ,currentAcc ,setopenError,openError,error }}
+    <useNFtmarketplaceContext.Provider
+      value={{ titledata, Connectwallet, CreatNFt, Uploadtoipfs ,Createsale,FetchNFt,useChackifWalletconnect,FetchingNftorListedNft,BuyNft ,currentAcc ,setopenError,openError,error }}
     >
       {children}
-    </NFtmarketplaceContext.Provider>
+    </useNFtmarketplaceContext.Provider>
   );
 };
