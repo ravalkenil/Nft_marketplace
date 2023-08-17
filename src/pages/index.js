@@ -18,25 +18,26 @@ const Index = () => {
     const [nftcopy, setnftcopy] = useState([]);
     
     // Creator List
+  
     const creators= getTopCreators(nfts);
-    console.log(creators);
+    console.log("creators",creators);
 
     useEffect(() => {
       const Chack=async ()=>{
-        await useChackifWalletconnect();
+         useChackifWalletconnect();
       }
       Chack();
     }, [])
 
     useEffect(() => {
-      FetchNFt().then((item)=>{
+       FetchNFt().then((item)=>{
         setnfts(item);
         setnftcopy(item)
-        console.log("--------------",item);
+        console.log("--------------item",item);
         console.log("---",nfts);
       })
     }, [])
-  
+    console.log("---nfts",nfts);
   return (
     <div className={Style.homepage}>
       <Herosection/> 

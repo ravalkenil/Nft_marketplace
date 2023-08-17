@@ -18,6 +18,17 @@ const Followertab = ({Topcreator}) => {
     const NewsArray=[{background:images.creatorbackground5, user:images.user5},{background:images.creatorbackground6 , user:images.user6},
         {background:images.creatorbackground7 , user:images.user7}];
 
+    const Topcreator1=[
+    {
+        "seller": "0x6f3e83F54FDe31a9e5ED703d1C588e1BB2253E40",
+        "total": 22
+    },
+    {
+        "seller": "0x3Ce6E0bE009a3830D232ab042b4474554f0e6Cf3",
+        "total": 20
+    }
+]
+
     const [popular, setpopular] = useState(true)
     const [follwing, setfollwing] = useState(false)
     const [news, setnews] = useState(false)
@@ -29,7 +40,7 @@ const Followertab = ({Topcreator}) => {
             setnews(false)
         }
     }
-
+    console.log("Topcreator",Topcreator);
     const openFollower=()=>{
         if(!follwing){
             setpopular(false)
@@ -91,11 +102,15 @@ const Followertab = ({Topcreator}) => {
         {
             popular && (
                 <div className={Style.followertab_box}>
-                    {Topcreator.map((el,i)=>{
+                    {
+                    ( 
+                        Topcreator1.map((el,i)=>{
                         return(
                             <Followertabcard key={i+1} i={i} el={el}/>
                         )
-                    })}
+                        })
+                    )
+                    }
                 </div>
             )
         }

@@ -14,7 +14,7 @@ import images from "../../img";
 const NFTcard = ({NFTdata}) => {
     // const featureArray=[images.nft_image_1,images.nft_image_2,images.nft_image_3,images.nft_image_1,
     //     images.nft_image_2,images.nft_image_3,images.nft_image_1,images.nft_image_2,images.nft_image_3];
-
+    console.log("NFTdata",NFTdata);
     const [like, setlike] = useState(true);
     const likenft=()=>{
         if(!like ){

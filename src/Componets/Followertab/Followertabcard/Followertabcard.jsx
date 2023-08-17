@@ -9,7 +9,7 @@ import images from "../../../img";
 
 const Followertabcard = ({i,el}) => {
   const [follwing, setFollwing] = useState(false);
-
+  console.log(el);
   const followMe=()=>{
     if(!follwing){
       setFollwing(true)
@@ -27,10 +27,10 @@ const Followertabcard = ({i,el}) => {
       </div>
       <div className={Style.followertabcard_box}>
           <div className={Style.followertabcard_box_img}>
-              <Image  src={el.background || images.creatorbackground1 } className={Style.followertabcard_box_img_img} alt='Profile background' width={470} height={300}/>
+              <Image  src={images.creatorbackground1 ||el.background   } className={Style.followertabcard_box_img_img} alt='Profile background' width={470} height={300}/>
           </div>
           <div className={Style.followertabcard_box_profile}>
-              <Image className={Style.followertabcard_box_profile_img} alt='Picture' width={100} height={100} src={el.user || images.user1}/>
+              <Image className={Style.followertabcard_box_profile_img} alt='Picture' width={100} height={100} src={images.user1 || el.user }/>
           </div>
           <div className={Style.followertabcard_box_info}>
               <div className={Style.followertabcard_box_info_name} >
