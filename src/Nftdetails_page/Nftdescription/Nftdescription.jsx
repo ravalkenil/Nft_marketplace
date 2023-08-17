@@ -27,7 +27,7 @@ import  Button  from "../../Componets/Button/Button";
 import  Nfttabs  from "../Nfttabs/Nfttabs";
 
 // Import Smart contract
-import  useNFtmarketplaceContext  from "../../context/NFTmarketplaceContext";
+import  {useNFtmarketplaceContext}  from "../../context/NFTmarketplaceContext";
 
 const Nftdescription = ({nft}) => {
     const [social, setSocial] = useState(false);
