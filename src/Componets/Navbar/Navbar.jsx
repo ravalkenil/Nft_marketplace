@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
+import { Web3Button } from '@web3modal/react'
 // ----import icons
 
 import { MdNotifications } from "react-icons/md";
@@ -167,11 +167,12 @@ const Navbar = () => {
           {/* create button sections */}
           <div className={Style.navbar_container_right_button}>
             {currentAcc == "" ? (
-              <Button btnName="Connect" handleclick={() => Connectwallet()} />
+              // <Button btnName="Connect" handleclick={() => Connectwallet()} />
+              <Web3Button/>
             ) : (
               <Button
                 btnName="Create"
-                handleclick={() => router.push("/Upload_nft")}
+                handleclick={() => router.push("/upload_nft")}
               />
             )}
           </div>
