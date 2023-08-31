@@ -2,8 +2,8 @@ import React, { useEffect, useState, useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Web3Button } from '@web3modal/react'
-import { useAccount } from 'wagmi'
+// import { Web3Button } from '@web3modal/react'
+// import { useAccount } from 'wagmi'
 // ----import icons
 
 import { MdNotifications } from "react-icons/md";
@@ -19,7 +19,7 @@ import images from "../../img";
 import Error from "../Error/Error";
 
 // Import smart contract
-import  {useNFtmarketplaceContext}  from "../../context/NFTmarketplaceContext";
+import  { useNFtmarketplaceContext}  from "../../context/NFTmarketplaceContext";
 
 
 const Navbar = () => {
@@ -31,8 +31,7 @@ const Navbar = () => {
   const [opensidemenu, setopensidemenu] = useState(false);
 
   const router = useRouter();
-  const { address, isConnected } = useAccount()
-  console.log("-------------------------------------------------",address);
+  // const { address, isConnected } = useAccount()
   // console.log("----------------------");
 
   // const openMenu = async(e)=>{
@@ -171,8 +170,8 @@ const Navbar = () => {
           {/* create button sections */}
           <div className={Style.navbar_container_right_button}>
             {currentAcc == "" ? (
-              // <Button btnName="Connect" handleclick={() => Connectwallet()} />
-              <Web3Button/>
+              <Button btnName="Connect" handleclick={() => Connectwallet()} />
+              // <Web3Button/>
             ) : (
               <Button
                 btnName="Create"
