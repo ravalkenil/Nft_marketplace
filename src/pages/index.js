@@ -22,12 +22,12 @@ const Index = () => {
     const creators= getTopCreators(nfts);
     console.log("creators",creators);
 
-    useEffect(() => {
-      const Chack=async ()=>{
-         useChackifWalletconnect();
-      }
-      Chack();
-    }, [])
+    // useEffect(() => {
+    //   const Chack=async ()=>{
+    //      useChackifWalletconnect();
+    //   }
+    //   Chack();
+    // }, [])
 
     useEffect(() => {
        FetchNFt().then((item)=>{

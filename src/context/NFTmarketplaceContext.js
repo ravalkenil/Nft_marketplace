@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-// import Webb3model from "web3modal";
+import Webb3model from "web3modal";
 import { ethers } from "ethers";
 import Router, { useRouter } from "next/router";
 import axios from "axios";
@@ -168,7 +168,7 @@ export const NFTmarketplaceprovider = ({ children }) => {
   //----Fetching function
   const FetchNFt= async()=>{
     try {
-        const url="HTTP://127.0.0.1:7545";
+        const url="https://sepolia.infura.io/v3/f1f504479c2742638da463f12193e687";
         const provider= new ethers.providers.JsonRpcProvider(url);
         const contract= fetchContract(provider);
         console.log("------",contract);

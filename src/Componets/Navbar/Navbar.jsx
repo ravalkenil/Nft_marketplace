@@ -2,8 +2,8 @@ import React, { useEffect, useState, useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-// import { Web3Button } from '@web3modal/react'
-// import { useAccount } from 'wagmi'
+import { Web3Button } from "@web3modal/react";
+import { useAccount } from "wagmi";
 // ----import icons
 
 import { MdNotifications } from "react-icons/md";
@@ -19,8 +19,7 @@ import images from "../../img";
 import Error from "../Error/Error";
 
 // Import smart contract
-import  { useNFtmarketplaceContext}  from "../../context/NFTmarketplaceContext";
-
+import { useNFtmarketplaceContext } from "../../context/NFTmarketplaceContext";
 
 const Navbar = () => {
   // --usestate
@@ -31,8 +30,8 @@ const Navbar = () => {
   const [opensidemenu, setopensidemenu] = useState(false);
 
   const router = useRouter();
-  // const { address, isConnected } = useAccount()
-  // console.log("----------------------");
+  const { address, isConnected } = useAccount();
+  console.log("----------------------", address);
 
   // const openMenu = async(e)=>{
 
@@ -111,7 +110,9 @@ const Navbar = () => {
   };
 
   // smart contract section
-  const { currentAcc, Connectwallet, openError} = useContext(useNFtmarketplaceContext);
+  const { currentAcc, Connectwallet, openError } = useContext(
+    useNFtmarketplaceContext
+  );  
 
   return (
     <div className={Style.navbar}>
@@ -123,7 +124,7 @@ const Navbar = () => {
               alt="NFT MARKETPLACE"
               width={100}
               height={100}
-              onClick={()=>router.push("/")}
+              onClick={() => router.push("/")}
             />
           </div>
           <div className={Style.navbar_container_left_box_input}>
@@ -169,14 +170,14 @@ const Navbar = () => {
 
           {/* create button sections */}
           <div className={Style.navbar_container_right_button}>
-            {currentAcc == "" ? (
-              <Button btnName="Connect" handleclick={() => Connectwallet()} />
-              // <Web3Button/>
-            ) : (
+            { address  ? (
+              // <Button btnName="Connect" handleclick={() => Connectwallet()} />
               <Button
                 btnName="Create"
                 handleclick={() => router.push("/upload_nft")}
               />
+            ) : (
+              <Web3Button/>
             )}
           </div>
 
@@ -191,7 +192,7 @@ const Navbar = () => {
                 onClick={() => openProfile()}
                 className={Style.navbar_container_right_profile}
               />
-              {profile && <Profile currentAcc={currentAcc}/>}
+              {profile && <Profile currentAcc={currentAcc} />}
             </div>
           </div>
 
@@ -216,9 +217,7 @@ const Navbar = () => {
         </div>
       )}
 
-      {
-        openError &&  <Error/>
-      }
+      {openError && <Error />}
     </div>
   );
 };

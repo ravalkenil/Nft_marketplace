@@ -19,6 +19,7 @@ import {
 import { BiTransferAlt, BiDollar } from "react-icons/bi";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useAccount } from "wagmi";
 
 // Internal import
 import Style from "./Nftdescription.module.css";
@@ -106,7 +107,9 @@ const Nftdescription = ({nft}) => {
   
     // Smart contract data
     const { currentAcc ,BuyNft }= useContext(useNFtmarketplaceContext);
-
+    const { address } =useAccount()
+    console.log("-------------------",address);
+    console.log(nft);
     return (
       <div className={Style.NFTDescription}>
         <div className={Style.NFTDescription_box}>
@@ -259,11 +262,11 @@ const Nftdescription = ({nft}) => {
   
               <div className={Style.NFTDescription_box_profile_biding_box_button}>
                 {
-                  currentAcc == nft.seller.toLowerCase() ? (
+                  address === nft.seller ? (
                     <p>
                       you can&apos;t buy your own NFT
                     </p>
-                  ): currentAcc== nft.owner.toLowerCase() ? (
+                  ): address == nft.owner ? (
                     <Button
                       icon=<FaWallet/>
                       btnName="List on marketplace"
