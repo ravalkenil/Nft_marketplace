@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Web3Button } from '@web3modal/react'
+import { useAccount } from 'wagmi'
 // ----import icons
 
 import { MdNotifications } from "react-icons/md";
@@ -20,6 +21,7 @@ import Error from "../Error/Error";
 // Import smart contract
 import  {useNFtmarketplaceContext}  from "../../context/NFTmarketplaceContext";
 
+
 const Navbar = () => {
   // --usestate
   const [discover, setdiscover] = useState(false);
@@ -29,6 +31,8 @@ const Navbar = () => {
   const [opensidemenu, setopensidemenu] = useState(false);
 
   const router = useRouter();
+  const { address, isConnected } = useAccount()
+  console.log("-------------------------------------------------",address);
   // console.log("----------------------");
 
   // const openMenu = async(e)=>{

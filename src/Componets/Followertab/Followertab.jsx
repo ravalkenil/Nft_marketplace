@@ -80,7 +80,7 @@ const Followertab = ({Topcreator}) => {
                 <div className={Style.followertab_box}>
                     {FollwingArray.map((el,i)=>{
                         return(
-                            <Followertabcard key={i+1} i={i} el={el}/>
+                            <Followertabcard key={i} i={i} el={el}/>
                         )
                     })}
                 </div>

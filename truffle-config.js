@@ -41,10 +41,12 @@
  * https://trufflesuite.com/docs/truffle/getting-started/using-the-truffle-dashboard/
  */
 
-require('dotenv').config();
-const { MNEMONIC, PROJECT_ID } = process.env;
-console.log("-----------------------",MNEMONIC);
+// require('dotenv').config();
+// const { MNEMONIC, PROJECT_ID } = process.env;
+// console.log("-----------------------",MNEMONIC);
 const HDWalletProvider = require('@truffle/hdwallet-provider');
+const MNEMONIC=swing remove album cash demand letter degree cram venture near victory buffalo
+const PROJECT_ID=f1f504479c2742638da463f12193e687
 
 module.exports = {
   /**

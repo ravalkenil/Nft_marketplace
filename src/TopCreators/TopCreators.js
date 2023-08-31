@@ -17,7 +17,8 @@ export const getTopCreators = (creators) => {
           .reduce((previousValue, currentValue) => previousValue + currentValue, 0 );
     
         finalCreator.push({seller,total})
-      });
+      }
+      );
     
       return finalCreator;
     }

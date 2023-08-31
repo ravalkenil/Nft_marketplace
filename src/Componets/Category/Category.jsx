@@ -14,7 +14,7 @@ const Category = () => {
         {
             Categoryarray.map((el,i)=>{
                 return(
-                        <div className={Style.category_box} key={1+1}>
+                        <div className={Style.category_box} key={i+1}>
                         <Image src={el} className={Style.category_box_img} alt="Background image" width={350} height={150} objectFit='cover' />
                             <div className={Style.category_box_title}>
                                 <span>
