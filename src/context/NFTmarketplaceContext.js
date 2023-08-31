@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import Webb3model from "web3modal";
+// import Webb3model from "web3modal";
 import { ethers } from "ethers";
 import Router, { useRouter } from "next/router";
 import axios from "axios";
